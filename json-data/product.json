@@ -1,0 +1,173 @@
+{
+  "allProducts": [
+    {
+      "id": "cK-pxRR",
+      "image": "mobile.jpg",
+      "name": "uuuu",
+      "price": "77",
+      "quantity": "1",
+      "category": "mob",
+      "status": "ss"
+    },
+    {
+      "id": "22",
+      "image": "mobile.jpg",
+      "name": "hello",
+      "price": "4",
+      "quantity": "2",
+      "category": "mobile",
+      "status": "no"
+    },
+    {
+      "id": "888",
+      "image": "mobile.jpg",
+      "name": "honora",
+      "price": "25000",
+      "quantity": "310",
+      "category": "mobiles",
+      "status": "In Stock"
+    },
+    {
+      "id": "10003",
+      "image": "mobile.jpg",
+      "name": "juii",
+      "price": "120000",
+      "quantity": "3",
+      "category": "electronics",
+      "status": "Out Of Stock"
+    },
+    {
+      "id": "8888",
+      "image": "logo1.jpg",
+      "name": "yyyyy",
+      "price": "3",
+      "quantity": "2",
+      "category": "uuuu",
+      "status": "uuuu"
+    },
+    {
+      "id": "29",
+      "image": "logo1.jpg",
+      "name": "jiu",
+      "price": "789",
+      "quantity": "987",
+      "category": "hhh",
+      "status": "ff"
+    }
+  ],
+  "newuser": [
+    {
+      "firstName": "miruna",
+      "lastName": "lini",
+      "emailAddress": "miru@gmail.com",
+      "pwd": "adc",
+      "id": ""
+    },
+    {
+      "firstName": "miruna",
+      "lastName": "fgggggg",
+      "emailAddress": "@gmail.com",
+      "pwd": "777777",
+      "id": "zu1QP4Z"
+    },
+    {
+      "firstName": "kavitha",
+      "lastName": "Rajaji",
+      "emailAddress": "@gmail.com",
+      "pwd": "7777777",
+      "id": "ywqkdOQ"
+    },
+    {
+      "firstName": "miruna",
+      "lastName": "kavitha",
+      "emailAddress": "miru@gmail.com",
+      "pwd": "asdfgh",
+      "id": "V26DjGM"
+    },
+    {
+      "firstName": "iiiiii",
+      "lastName": "hkkkkd",
+      "emailAddress": "a@gmail.com",
+      "pwd": "123456",
+      "id": "85Jr_Be"
+    },
+    {
+      "firstName": "kabith",
+      "lastName": "hythum",
+      "emailAddress": "mirunalini@yahoo.com",
+      "pwd": "miruna",
+      "id": "1uDPtEP"
+    },
+    {
+      "firstName": "jihuln",
+      "lastName": "lkudbm",
+      "emailAddress": "miruna@gmail.com",
+      "pwd": "123456",
+      "id": "Tbnxauh"
+    },
+    {
+      "firstName": "fffffff",
+      "lastName": "fffffff",
+      "emailAddress": "@ail.com",
+      "pwd": "4444444",
+      "id": "m0Zp-gK"
+    },
+    {
+      "firstName": "hdkfkjf",
+      "lastName": "yyyyyu",
+      "emailAddress": "l@gmail.com",
+      "pwd": "7777777",
+      "id": "Q-14GO5"
+    }
+  ],
+  "sampleProducts": [
+    {
+      "id": "1",
+      "name": "Sumsung",
+      "price": "25000",
+      "quantity": "5",
+      "category": "Mobile",
+      "status": "Available"
+    },
+    {
+      "id": "2",
+      "name": "jbl",
+      "price": "256",
+      "quantity": "12",
+      "category": "ear phone",
+      "status": "true"
+    },
+    {
+      "id": "3",
+      "name": "ear phone",
+      "price": "4444",
+      "quantity": "66",
+      "category": "ear phone",
+      "status": "on"
+    },
+    {
+      "id": "8",
+      "name": "ff",
+      "price": "66",
+      "quantity": "5",
+      "category": "hhh",
+      "status": "on"
+    },
+    {
+      "id": "4",
+      "name": "ff",
+      "price": "55",
+      "quantity": "2",
+      "category": "cc",
+      "status": "true"
+    },
+    {
+      "id": "6",
+      "name": "der",
+      "price": "66",
+      "quantity": "2",
+      "category": "fr",
+      "status": "on"
+    }
+  ]
+}
