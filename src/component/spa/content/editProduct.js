@@ -13,11 +13,7 @@ class EditProduct extends React.Component {
             quantity:0,
             category:'',
             status:'',
-            nameerror:'',
-            priceerror:'',
-            quantityerror:'',
-            categoryerror:'',
-            statuserror:''
+           
         }
     }
     
@@ -43,7 +39,7 @@ class EditProduct extends React.Component {
    
     getName=(event)=>{
         this.setState({name:event.target.value})
-        this.checkName()
+        // this.checkName()
     }
     getPrice=(event)=>{
         this.setState({price:event.target.value})
@@ -61,51 +57,10 @@ class EditProduct extends React.Component {
         this.setState({status:event.target.value})
         // this.checkStatus()
     }
-    checkName=()=>{
-        let nameerror=''
-        if(this.state.name.length<=2){
-            nameerror="Give Valid Name"
-            this.setState({nameError:nameerror})
-        }else{
-            this.setState({nameError:""})
-        }
-    }
-    // checkPrice=()=>{
-    //     let priceerror=''
-    //     if(!this.state.price(Number)){
-    //         priceerror="Give Valid price"
-    //         this.setState({priceError:priceerror})
-    //     }else{
-    //         this.setState({priceError:""})
-    //     }
-    // }
-    // checkQuantity=()=>{
-    //     let quantityerror=''
-    //     if(this.state.quantity(Number)){
-    //         quantityerror="Add Quantity"
-    //         this.setState({quantityError:quantityerror})
-    //     }else{
-    //         this.setState({quantityError:""})
-    //     }
-    // }
-    // checkCategory=()=>{
-    //     let categoryerror=''
-    //     if(!this.state.category===''){
-    //         categoryerror="Add category"
-    //         this.setState({categoryError:categoryerror})
-    //     }else{
-    //         this.setState({categoryError:""})
-    //     }
-    // }
-    // checkStatus=()=>{
-    //     let statuserror=''
-    //     if(!this.state.status===''){
-    //         statuserror="Add Quantity"
-    //         this.setState({statusError:statuserror})
-    //     }else{
-    //         this.setState({statusError:""})
-    //     }
-    // }
+    
+    
+    
+   
 
     editProduct=()=>{
         let productRequest={
@@ -117,9 +72,9 @@ class EditProduct extends React.Component {
             "category":this.state.category,
             "status":this.state.status
         }
-        if(this.state.nameError===''){
-        // &&this.state.priceError===''&&this.state.quantityError===''&&this.state.categoryError===''&&
-        // this.state.statusError==='')
+        // if(this.state.nameError===''){
+        //     if(this.state.nameError==='' &&this.state.priceError===''&&this.state.quantityError===''&&this.state.categoryError===''&&
+        // this.state.statusError===''){
             Axios.put("http://localhost:3000/allProducts/"+this.state.id,productRequest)
             .then(response=>{
                 console.log(response)
@@ -128,9 +83,9 @@ class EditProduct extends React.Component {
                 console.log(error)
             })
 
-        }else{
-            alert('Update details')
-        }
+        // }else{
+        //     alert('Update details')
+        // }
     
        
     }
@@ -161,7 +116,7 @@ class EditProduct extends React.Component {
                 <input type="text" value={this.state.name} onChange={this.getName} style={{marginLeft:'3px'}}></input>
                 {this.state.nameError}<br></br>
                 <label for="price">Price </label>
-                <input type="text" value={this.state.price} onChange={this.getPrice} style={{marginLeft:'57px'}}  ></input>
+                <input type="number" value={this.state.price} onChange={this.getPrice} min="1"style={{marginLeft:'57px'}}  ></input>
                 {this.state.priceError}<br></br>
                 <label for="quantity">Quantity </label>
                 <input type="number" value={this.state.quantity} onChange={this.getQuantity} min="1"style={{marginLeft:'42px'}}  ></input>

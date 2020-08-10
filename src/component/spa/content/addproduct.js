@@ -17,16 +17,18 @@ class AddProduct extends React.Component {
             productStatus:'',
             iderror:'',
             nameerror:'',
-            
-           
             statuserror:'',
-            categoryerror:''
+            categoryerror:'',
+            priceerror:'',
+            quantityerror:'',
+            imageerror:'',
+           
         }
     }
 
     getId=(event)=>{
         this.setState({productId:event.target.value})
-        // this.checkId()
+        this.checkId()
     }
     getName=(event)=>{
         this.setState({productName:event.target.value})
@@ -34,11 +36,11 @@ class AddProduct extends React.Component {
     }
     getPrice=(event)=>{
         this.setState({productPrice:event.target.value})
-        // this.checkPrice()
+        this.checkPrice()
     }
     getQuantity=(event)=>{
         this.setState({productQuantity:event.target.value})
-       
+       this.checkQuantity()
     }
     getCategory=(event)=>{
         this.setState({productCategory:event.target.value})
@@ -56,7 +58,7 @@ class AddProduct extends React.Component {
 
     checkId=()=>{
         let iderror=''
-        if(this.state.productId.includes('*')){
+        if(this.state.productId===''){
             iderror="Give Unique Id"
             this.setState({idError:iderror})
         }else{
@@ -72,32 +74,28 @@ class AddProduct extends React.Component {
             this.setState({nameError:""})
         }
     }
-    // checkPrice=()=>{
-    //     let priceerror=''
-    //     // if(!this.state.productPrice){
-    //     //     priceerror="Give Valid price"
-    //     //     this.setState({priceError:priceerror})
-    //     // }
-    //      if(isNaN(this.state.productPrice)){
-    //         priceerror="price must be a number"
-    //         this.setState({priceError:priceerror})
-    //     }else{
-    //         this.setState({priceError:""})
-    //     }
-    // }
-    // checkQuantity=()=>{
-    //     let quantityerror=''
-    //     if(this.state.productQuantity(Number)){
-    //         quantityerror="Add Quantity"
-    //         this.setState({quantityError:quantityerror})
-    //     }else{
-    //         this.setState({quantityError:""})
-    //     }
-    // }
+    checkPrice=()=>{
+        let priceerror=''
+        if(this.state.productPrice===''){
+            priceerror="Give Valid price"
+            this.setState({priceError:priceerror})
+        } else{
+            this.setState({priceError:""})
+        }
+    }
+    checkQuantity=()=>{
+        let quantityerror=''
+        if(this.state.productQuantity===''){
+            quantityerror="Add Quantity"
+            this.setState({quantityError:quantityerror})
+        }else{
+            this.setState({quantityError:""})
+        }
+    }
     checkCategory=()=>{
         let categoryerror=''
-        if(!this.state.productCategory===''){
-            categoryerror="Add category"
+        if(this.state.productCategory.length<=3){
+            categoryerror="Add valid category"
             this.setState({categoryError:categoryerror})
         }else{
             this.setState({categoryError:""})
@@ -105,8 +103,8 @@ class AddProduct extends React.Component {
     }
     checkStatus=()=>{
         let statuserror=''
-        if(!this.state.productStatus===''){
-            statuserror="Add Quantity"
+        if(!this.state.productStatus.includes('stoc')){
+            statuserror="Give InStock or OutStock"
             this.setState({statusError:statuserror})
         }else{
             this.setState({statusError:""})
@@ -139,8 +137,8 @@ class AddProduct extends React.Component {
                alert("ProductId must be unique")
             }
         }
-       else if(this.state.nameError===''&&this.state.categoryError===''&&
-                            this.state.statusError===''&&this.state.imageError===''){
+       else if(this.state.idError===''&&this.state.nameError===''&& this.state.categoryError===''&&this.state.priceError===''&&
+       this.state.quantityError===''&&this.state.statusError===''&&this.state.imageError===''){
                                             Axios.post("http://localhost:3000/allProducts",productRequest)
                                             .then(response=>{
                                                 console.log(response)
@@ -153,13 +151,17 @@ class AddProduct extends React.Component {
                                         }
         
     }
+  
    
     render() { 
         return ( 
             <div >
               <Navbar></Navbar>
+             
+                
+             
                 <form >
-                    <fieldset   >
+                    <fieldset style={{marginTop:'2px'}}  >
                     <center style={{padding:'10px'}}>
                 <h2 >Add Product</h2>
                 <input type="text" placeholder="Product Id" onChange={this.getId} style={{width:'60%'}} ></input>
@@ -176,10 +178,7 @@ class AddProduct extends React.Component {
                 {this.state.statusError}<br></br>
                 <input type="file" onChange={this.getImage} multiple accept='image/*'></input>
                 {this.state.imageError}
-                 {/* <select name="category" value="category" onChange={this.getCategory} >
-                     <option value="Mobiles">Mobiles</option>
-                     <option value="Electronics">Electronics</option>
-                     <option value="Clothes">Clothes</option></select> */}
+                
                 
                 <button type="submit"onClick={this.addProduct} >Add</button>
                 </center>

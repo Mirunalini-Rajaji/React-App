@@ -75,16 +75,7 @@ class Product extends React.Component {
         this.props.history.push('/addproduct')
     }
 
-    // getSearch=(e)=>{
-        
-    //     if(e.target.value === ''){
-    //             this.setState({List:this.state.productsList})
-    //     }
-    // this.setState({searchValue: e.target.value})
-    //         var searchList=this.state.productsList.filter(products=>products.name.toLowerCase().startsWith(e.target.value.toLowerCase()));
-    //         this.setState({productsList:searchList})
-        
-    // }
+    
     getSearch=(e)=>{
         let searchV = e.target.value
         if(searchV ===''){
@@ -114,23 +105,9 @@ class Product extends React.Component {
                     <button className="add" onClick={this.addProduct}>Add Product</button>
                     <br></br>
                     </center>
-                    {/* <table border="2">
-                        <thead>
-                            <tr>
-                                <th>Product Id</th>
-                                <th>Image</th>
-                                <th>Product Name</th>
-                                <th>Price</th>
-                                <th>Quantity</th> 
-                                <th>Category</th>
-                                <th>Status</th>
-                                <th colSpan="4">Options</th>
-                            </tr>
-                        </thead> */}
-                        {/* <tbody> */}
+                    
                             {this.renderAllProducts()}
-                        {/* </tbody>
-                    </table> */}
+                       
                             
                
             </div>

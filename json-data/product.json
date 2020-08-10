@@ -1,27 +1,9 @@
 {
   "allProducts": [
     {
-      "id": "cK-pxRR",
-      "image": "mobile.jpg",
-      "name": "uuuu",
-      "price": "77",
-      "quantity": "1",
-      "category": "mob",
-      "status": "ss"
-    },
-    {
-      "id": "22",
-      "image": "mobile.jpg",
-      "name": "hello",
-      "price": "4",
-      "quantity": "2",
-      "category": "mobile",
-      "status": "no"
-    },
-    {
       "id": "888",
       "image": "mobile.jpg",
-      "name": "honora",
+      "name": "honor",
       "price": "25000",
       "quantity": "310",
       "category": "mobiles",
@@ -30,7 +12,7 @@
     {
       "id": "10003",
       "image": "mobile.jpg",
-      "name": "juii",
+      "name": "jbl",
       "price": "120000",
       "quantity": "3",
       "category": "electronics",
@@ -43,7 +25,7 @@
       "price": "3",
       "quantity": "2",
       "category": "uuuu",
-      "status": "uuuu"
+      "status": "outofstock"
     },
     {
       "id": "29",
@@ -53,6 +35,33 @@
       "quantity": "987",
       "category": "hhh",
       "status": "ff"
+    },
+    {
+      "id": "88",
+      "image": "mobile.jpg",
+      "name": "mii",
+      "price": "5",
+      "quantity": "6",
+      "category": "Electronics",
+      "status": "ss"
+    },
+    {
+      "id": "881",
+      "image": "logo1.jpg",
+      "name": "bag",
+      "price": "7",
+      "quantity": "5",
+      "category": "accessories",
+      "status": "instock"
+    },
+    {
+      "id": "778",
+      "image": "logo1.jpg",
+      "name": "shoes",
+      "price": "4",
+      "quantity": "7",
+      "category": "shoes",
+      "status": "instock"
     }
   ],
   "newuser": [
@@ -118,6 +127,20 @@
       "emailAddress": "l@gmail.com",
       "pwd": "7777777",
       "id": "Q-14GO5"
+    },
+    {
+      "firstName": "rajaji",
+      "lastName": "kavitha",
+      "emailAddress": "11@gmail.com",
+      "pwd": "1234567",
+      "id": "5iNhjeZ"
+    },
+    {
+      "firstName": "liniya",
+      "lastName": "miruna",
+      "emailAddress": "lini@gmail.com",
+      "pwd": "zzzzzz",
+      "id": "JHpp8J1"
     }
   ],
   "sampleProducts": [
@@ -170,4 +193,5 @@
       "status": "on"
     }
   ]
+ 
 }
