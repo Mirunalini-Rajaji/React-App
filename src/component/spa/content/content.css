@@ -113,3 +113,31 @@ padding: 140px 130px 10px;
      padding:0px
  }
    
+ .rowChart{
+    margin:0 -5px;
+    position: relative;
+}
+.columnChart{
+    float:left;
+    width:43.3333%;
+    padding:19px 3px 3px;
+}
+.rowChart:after{
+    content:"";
+   display: block;
+   clear: both;
+}
+@media screen and (max-width:600px){
+    .columnChart{
+        width: 100%;
+        display: block;
+        margin-bottom: 20px;
+    }
+}
+.cardChart{
+    box-shadow:0 4px 2px 0 rgba(0,0,0,0.2);
+    padding: 14px;
+   
+    text-align: center;
+    /* background-color: #b1acb4; */
+}

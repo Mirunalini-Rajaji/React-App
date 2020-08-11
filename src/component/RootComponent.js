@@ -2,11 +2,11 @@ import React from 'react';
 import Header from "./spa/header/header";
 import Content from "./spa/content/Content";
 
-class RootComponent extends React.Component{
+class RootComponent extends React.Component {
 
-    
 
-    render(){
+
+    render() {
         return (
             <div>
                 <Header></Header>

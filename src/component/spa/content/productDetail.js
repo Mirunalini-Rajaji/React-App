@@ -1,39 +1,39 @@
 import React from 'react';
 import './content.css'
 class ProductDetail extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props)
-        this.state={
+        this.state = {
 
         }
     }
-    deleteProduct=()=>{
+    deleteProduct = () => {
         this.props.deleteId(this.props.id)
     }
 
-    editProductById=()=>{
+    editProductById = () => {
         this.props.editId(this.props.id)
     }
-    render() { 
-        return ( 
+    render() {
+        return (
             <div className="row">
                 <div className="column">
                     <div className="card">
-                         <img src={"images/"+this.props.image} height="170px" width="170px" alt="profile"></img>
-                         <h2>{this.props.name}</h2> 
-                         <h4>Price : {this.props.price}</h4> 
-                         <h4>Quantity: {this.props.quantity}</h4> 
-                         <h4>Category: {this.props.category}</h4>
-                         <h3 className="status"> {this.props.status}</h3> 
-                         <button className="update" onClick={this.editProductById} >Update</button>
-                         <button className="delete" onClick={this.deleteProduct}>Delete</button>
+                        <img src={"images/" + this.props.image} height="170px" width="170px" alt="profile"></img>
+                        <h2>{this.props.name}</h2>
+                        <h4>Price : {this.props.price}</h4>
+                        <h4>Quantity: {this.props.quantity}</h4>
+                        <h4>Category: {this.props.category}</h4>
+                        <h3 className="status"> {this.props.status}</h3>
+                        <button className="update" onClick={this.editProductById} >Update</button>
+                        <button className="delete" onClick={this.deleteProduct}>Delete</button>
                     </div>
                 </div>
-             </div>
-                       
-           
-         );
+            </div>
+
+
+        );
     }
 }
- 
+
 export default ProductDetail;

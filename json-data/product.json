@@ -5,62 +5,44 @@
       "image": "mobile.jpg",
       "name": "honor",
       "price": "25000",
-      "quantity": "310",
+      "quantity": "30",
       "category": "mobiles",
       "status": "In Stock"
     },
     {
       "id": "10003",
       "image": "mobile.jpg",
-      "name": "jbl",
-      "price": "120000",
-      "quantity": "3",
+      "name": "sumsung",
+      "price": "900",
+      "quantity": "25",
       "category": "electronics",
-      "status": "Out Of Stock"
+      "status": "out of stock"
     },
     {
-      "id": "8888",
-      "image": "logo1.jpg",
-      "name": "yyyyy",
-      "price": "3",
-      "quantity": "2",
-      "category": "uuuu",
-      "status": "outofstock"
-    },
-    {
-      "id": "29",
-      "image": "logo1.jpg",
-      "name": "jiu",
-      "price": "789",
-      "quantity": "987",
-      "category": "hhh",
-      "status": "ff"
-    },
-    {
-      "id": "88",
-      "image": "mobile.jpg",
-      "name": "mii",
+      "id": "4432",
+      "image": "logo.png",
+      "name": "shoe",
       "price": "5",
-      "quantity": "6",
-      "category": "Electronics",
-      "status": "ss"
-    },
-    {
-      "id": "881",
-      "image": "logo1.jpg",
-      "name": "bag",
-      "price": "7",
-      "quantity": "5",
-      "category": "accessories",
+      "quantity": "15",
+      "category": "shoes",
       "status": "instock"
     },
     {
-      "id": "778",
-      "image": "logo1.jpg",
-      "name": "shoes",
-      "price": "4",
-      "quantity": "7",
-      "category": "shoes",
+      "id": "65",
+      "image": "mobile.jpg",
+      "name": "redme",
+      "price": "2",
+      "quantity": "20",
+      "category": "phone",
+      "status": "instock"
+    },
+    {
+      "id": "11",
+      "image": "mobile.jpg",
+      "name": "nokia",
+      "price": "3",
+      "quantity": "11",
+      "category": "Electronics",
       "status": "instock"
     }
   ],
@@ -141,6 +123,34 @@
       "emailAddress": "lini@gmail.com",
       "pwd": "zzzzzz",
       "id": "JHpp8J1"
+    },
+    {
+      "firstName": "jjjjj",
+      "lastName": "jjjjj",
+      "emailAddress": "jj@gmail.com",
+      "pwd": "1111111",
+      "id": "E2PHySQ"
+    },
+    {
+      "firstName": "hello",
+      "lastName": "hello",
+      "emailAddress": "22@gmail.com",
+      "pwd": "111111",
+      "id": "oTcaVyM"
+    },
+    {
+      "firstName": "sobitha",
+      "lastName": "rajaji",
+      "emailAddress": "sobi@gmail.com",
+      "pwd": "1234567890",
+      "id": "8cGgPgG"
+    },
+    {
+      "firstName": "niveth",
+      "lastName": "gopik",
+      "emailAddress": "nive@gmail.com",
+      "pwd": "222222",
+      "id": "1SvLZVx"
     }
   ],
   "sampleProducts": [
@@ -193,5 +203,4 @@
       "status": "on"
     }
   ]
- 
 }

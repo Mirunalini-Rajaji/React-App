@@ -11,23 +11,23 @@ import EditProduct from './editProduct';
 
 
 class Content extends React.Component {
-    
-    render() { 
-        return ( 
+
+    render() {
+        return (
             <div>
-              
-            <Switch>
-                <Route exact path='/' component={Login}></Route>
-                <Route   path='/createaccount' component={SignIn}></Route>
-                <Route   path='/dashboard' component={Dashboard}></Route>
-                <Route   path='/products' component={Product}></Route>
-                <Route path="/addproduct" component={AddProduct}></Route>
-                <Route path="/editproduct" component={EditProduct}></Route>
-                
-            </Switch>
+
+                <Switch>
+                    <Route exact path='/' component={Login}></Route>
+                    <Route path='/createaccount' component={SignIn}></Route>
+                    <Route path='/dashboard' component={Dashboard}></Route>
+                    <Route path='/products' component={Product}></Route>
+                    <Route path="/addproduct" component={AddProduct}></Route>
+                    <Route path="/editproduct" component={EditProduct}></Route>
+
+                </Switch>
             </div>
-         );
+        );
     }
 }
- 
+
 export default Content;
