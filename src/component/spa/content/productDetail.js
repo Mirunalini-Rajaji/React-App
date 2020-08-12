@@ -24,7 +24,7 @@ class ProductDetail extends React.Component {
                         <h4>Price : {this.props.price}</h4>
                         <h4>Quantity: {this.props.quantity}</h4>
                         <h4>Category: {this.props.category}</h4>
-                        <h3 className="status"> {this.props.status}</h3>
+
                         <button className="update" onClick={this.editProductById} >Update</button>
                         <button className="delete" onClick={this.deleteProduct}>Delete</button>
                     </div>

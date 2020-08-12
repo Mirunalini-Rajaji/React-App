@@ -1,49 +1,28 @@
 {
   "allProducts": [
     {
-      "id": "888",
-      "image": "mobile.jpg",
-      "name": "honor",
-      "price": "25000",
-      "quantity": "30",
-      "category": "mobiles",
-      "status": "In Stock"
-    },
-    {
-      "id": "10003",
-      "image": "mobile.jpg",
-      "name": "sumsung",
-      "price": "900",
-      "quantity": "25",
-      "category": "electronics",
-      "status": "out of stock"
-    },
-    {
-      "id": "4432",
+      "id": "vjLP84d",
       "image": "logo.png",
-      "name": "shoe",
-      "price": "5",
-      "quantity": "15",
-      "category": "shoes",
-      "status": "instock"
+      "name": "jeans",
+      "price": "1000",
+      "quantity": "12",
+      "category": "clothes"
     },
     {
-      "id": "65",
-      "image": "mobile.jpg",
-      "name": "redme",
-      "price": "2",
-      "quantity": "20",
-      "category": "phone",
-      "status": "instock"
+      "id": "3SxlhGo",
+      "image": "earphone.jpg",
+      "name": "headset",
+      "price": "1",
+      "quantity": "10",
+      "category": "electronics"
     },
     {
-      "id": "11",
-      "image": "mobile.jpg",
-      "name": "nokia",
-      "price": "3",
-      "quantity": "11",
-      "category": "Electronics",
-      "status": "instock"
+      "id": "dHojtTr",
+      "image": "toys.jpg",
+      "name": "teddy",
+      "price": "220",
+      "quantity": "5",
+      "category": "toys"
     }
   ],
   "newuser": [
@@ -151,56 +130,13 @@
       "emailAddress": "nive@gmail.com",
       "pwd": "222222",
       "id": "1SvLZVx"
-    }
-  ],
-  "sampleProducts": [
-    {
-      "id": "1",
-      "name": "Sumsung",
-      "price": "25000",
-      "quantity": "5",
-      "category": "Mobile",
-      "status": "Available"
     },
     {
-      "id": "2",
-      "name": "jbl",
-      "price": "256",
-      "quantity": "12",
-      "category": "ear phone",
-      "status": "true"
-    },
-    {
-      "id": "3",
-      "name": "ear phone",
-      "price": "4444",
-      "quantity": "66",
-      "category": "ear phone",
-      "status": "on"
-    },
-    {
-      "id": "8",
-      "name": "ff",
-      "price": "66",
-      "quantity": "5",
-      "category": "hhh",
-      "status": "on"
-    },
-    {
-      "id": "4",
-      "name": "ff",
-      "price": "55",
-      "quantity": "2",
-      "category": "cc",
-      "status": "true"
-    },
-    {
-      "id": "6",
-      "name": "der",
-      "price": "66",
-      "quantity": "2",
-      "category": "fr",
-      "status": "on"
+      "firstName": "diyan",
+      "lastName": "diyan",
+      "emailAddress": "dd@gmail.com",
+      "pwd": "aaaaaa",
+      "id": "oe0H61W"
     }
   ]
 }

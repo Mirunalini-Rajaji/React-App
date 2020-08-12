@@ -76,7 +76,7 @@ class SignIn extends React.Component {
     checkFname = () => {
         let Fnameerror = ''
         if (this.state.firstName.length <= 3) {
-            Fnameerror = " *Name is too weak"
+            Fnameerror = "* Name is too weak"
             this.setState({ FnameError: Fnameerror })
         }
         else {
@@ -86,7 +86,7 @@ class SignIn extends React.Component {
     checkLname = () => {
         let Lnameerror = ''
         if (this.state.lastName.length <= 3) {
-            Lnameerror = " *Name is too weak"
+            Lnameerror = "* Name is too weak"
             this.setState({ LnameError: Lnameerror })
         }
         else {
@@ -96,7 +96,7 @@ class SignIn extends React.Component {
     checkEmail = () => {
         let Emailerror = ''
         if (!this.state.emailAddress.includes('@' && '.co')) {
-            Emailerror = " *Enter Valid Email"
+            Emailerror = "* Enter Valid Email"
             this.setState({ EmailError: Emailerror })
         }
         else {
@@ -107,7 +107,7 @@ class SignIn extends React.Component {
     checkPwd = () => {
         let Pwderror = ''
         if (this.state.pwd.length <= 4) {
-            Pwderror = " *Password is not strong"
+            Pwderror = "* Password is not strong"
             this.setState({ PwdError: Pwderror })
         }
         else {
@@ -124,13 +124,13 @@ class SignIn extends React.Component {
                         <center style={{ padding: '0px' }}>
                             <h2 >SignIn</h2>
                             <input type="text" placeholder="First Name" onChange={this.getFname} required style={{ margin: '10px' }}>
-                            </input>{this.state.FnameError}<br></br>
+                            </input><div>{this.state.FnameError}</div>
                             <input type="text" placeholder="Last Name" onChange={this.getLname} required style={{ margin: '15px' }}></input>
-                            {this.state.LnameError}<br></br>
+                            <div>{this.state.LnameError}</div>
                             <input type="text" placeholder="Email Address" onChange={this.getEmail} required style={{ margin: '15px' }}></input>
-                            {this.state.EmailError}<br></br>
+                            <div>{this.state.EmailError}</div>
                             <input type="password" placeholder="Password" required onChange={this.getPwd} style={{ margin: '15px' }}></input>
-                            {this.state.PwdError}<br></br>
+                            <div>{this.state.PwdError}</div>
 
                             <button onClick={this.addUser}
                                 style={{ backgroundColor: '#4CAF50', color: 'white', border: 'none', borderRadius: '4px', cursor: 'Pointer', padding: '10px' }}>SignIn</button><br></br>

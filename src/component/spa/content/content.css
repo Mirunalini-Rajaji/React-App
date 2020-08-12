@@ -4,15 +4,16 @@
     box-sizing: border-box;
 }
 center{
-    padding-top: 10px;
+    padding-top: 100px;
 }
 fieldset{
     box-sizing: border-box;
-    /* background-image: url("bg.png"); */
+   
     background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-position: center;
+    
    max-width:100%;
    height: auto;
 }
@@ -36,12 +37,13 @@ input[type=text],[type=password],[type=number]{
   }
   form{
 padding: 140px 130px 10px;
+
   }
-  .link{
+  /* .link{
       font-size: 49px;
-  }
+  } */
   @media screen and (max-width: 50px) {
-    button[type=submit],input[type=text],[type=password],form,.link,.div {
+    button[type=submit],input[type=text],[type=password],form,.link,.div,.chart {
       width: 40%;
       margin-top: 0;
     }
@@ -70,6 +72,7 @@ padding: 140px 130px 10px;
          display: block;
          margin-bottom: 20px;
      }
+    
  }
  .card{
      box-shadow:0 4px 8px 0 rgba(0,0,0,0.2);

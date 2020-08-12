@@ -48,16 +48,22 @@ class Login extends React.Component {
     }
 
     openDashboard = async () => {
+
         const data = await Axios.get('http://localhost:3000/newuser?emailAddress=' + this.state.email);
         if (data.data.length !== 0) {
             if (this.state.pwd === data.data[0].pwd) {
                 this.props.history.push('/dashboard')
+            } else {
+                alert("Wrong Password")
+
             }
 
-        } else {
+
+
+        }
+        else {
             alert("invalid user")
         }
-
 
     }
 
@@ -66,11 +72,13 @@ class Login extends React.Component {
 
             <div >
                 <form >
-                    <fieldset style={{ padding: '3px' }} >
-                        <center>
+                    <fieldset style={{ marginTop: '12px' }} >
+                        <center style={{ padding: '20px' }}>
+
                             <h2 >Login</h2>
+
                             <input type="text" placeholder="Email Address" required onChange={this.getEmail} >
-                            </input>{this.state.emailError}<br></br>
+                            </input><br></br>
                             <input type="password" placeholder="Password" required onChange={this.getPwd}></input> {this.state.pwdError}<br></br>
 
                             <button type="submit" onClick={this.openDashboard} >Login</button><br></br>

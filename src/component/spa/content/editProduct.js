@@ -14,8 +14,8 @@ class EditProduct extends React.Component {
             category: '',
             status: '',
             nameerror: '',
-            categoryerror: '',
-            statuserror: ''
+           buttonStatus:false
+
         }
     }
 
@@ -30,7 +30,7 @@ class EditProduct extends React.Component {
                     price: response.data.price,
                     quantity: response.data.quantity,
                     category: response.data.category,
-                    status: response.data.status
+
                 })
             }, error => {
                 console.log(error)
@@ -53,46 +53,19 @@ class EditProduct extends React.Component {
     }
     getCategory = (event) => {
         this.setState({ category: event.target.value })
-        this.checkCategory()
     }
-    getStatus = (event) => {
-        this.setState({ status: event.target.value })
-        this.checkStatus()
-    }
+
     checkName = () => {
         let nameerror = ''
-        if (this.state.name.length < 1) {
-            nameerror = "Give Valid Name"
-            this.setState({ nameError: nameerror })
+        if (this.state.name.length < 2) {
+            nameerror = "* Give Valid Name"
+            this.setState({ nameError: nameerror ,buttonStatus:true})
         } else {
-            this.setState({ nameError: "" })
+            this.setState({ nameError: "" ,buttonStatus:false})
         }
     }
 
-
-    checkCategory = () => {
-        let categoryerror = ''
-        if (this.state.category.length <= 3) {
-            categoryerror = "Add valid category"
-            this.setState({ categoryError: categoryerror })
-        } else {
-            this.setState({ categoryError: "" })
-        }
-    }
-    checkStatus = () => {
-        let statuserror = ''
-        if (!this.state.status.includes('stoc' || 'STOC')) {
-            statuserror = "Give InStock or OutStock details"
-            this.setState({ statusError: statuserror })
-        } else {
-            this.setState({ statusError: "" })
-        }
-    }
-
-
-
-
-    editProduct = () => {
+     editProduct = () => {
 
         let productRequest = {
             "id": this.state.id,
@@ -100,12 +73,10 @@ class EditProduct extends React.Component {
             "name": this.state.name,
             "price": this.state.price,
             "quantity": this.state.quantity,
-            "category": this.state.category,
-            "status": this.state.status
+            "category": this.state.category
+
         }
-        // if(this.state.nameError===''){
-        //     if(this.state.nameError==='' &&this.state.priceError===''&&this.state.quantityError===''&&this.state.categoryError===''&&
-        // this.state.statusError===''){
+      
 
         Axios.put("http://localhost:3000/allProducts/" + this.state.id, productRequest)
             .then(response => {
@@ -114,10 +85,9 @@ class EditProduct extends React.Component {
             }, error => {
                 console.log(error)
             })
+            
 
-        // }else{
-        //     alert('Update details')
-        // }
+        
 
 
     }
@@ -142,11 +112,10 @@ class EditProduct extends React.Component {
                     <fieldset style={{ padding: '20px' }}>
                         <center style={{ padding: '0px' }}>
                             <h2>Update Product</h2>
-                            {/* <label for="productId">Product Id  :</label>
-                <input type="text" placeholder="Product Id" value={this.state.id} onChange={this.getId}  style={{margin:'10px'}}></input><br></br> */}
+
                             <label >Product Name </label>
                             <input type="text" value={this.state.name} onChange={this.getName} required style={{ marginLeft: '3px' }}></input>
-                            {this.state.nameError}<br></br>
+                            <div>{this.state.nameError}</div>
                             <label >Price </label>
                             <input type="number" value={this.state.price} onChange={this.getPrice} required min="1" style={{ marginLeft: '57px' }}  ></input>
                             <br></br>
@@ -154,12 +123,10 @@ class EditProduct extends React.Component {
                             <input type="number" value={this.state.quantity} onChange={this.getQuantity} required min="1" style={{ marginLeft: '42px' }}  ></input>
                             <br></br>
                             <label >Category </label>
-                            <input type="text" value={this.state.category} onChange={this.getCategory} readOnly required style={{ marginLeft: '42px' }} ></input>
-                            {this.state.categoryError}<br></br>
-                            <label >Status </label>
-                            <input type="text" value={this.state.status} onChange={this.getStatus} required style={{ marginLeft: '57px' }} />
-                            {this.state.statusError}<br></br>
-                            <button type="submit" >Update</button><br></br>
+                            <input type="text" value={this.state.category} onChange={this.getCategory} readOnly style={{ marginLeft: '42px' }} ></input>
+                            <br></br>
+
+                            <button type="submit" disabled={this.state.buttonStatus}>Update</button><br></br>
                         </center>
                     </fieldset>
                 </form>

@@ -25,10 +25,9 @@ class Product extends React.Component {
 
     getAllProducts = () => {
         axios.get("http://localhost:3000/allProducts").then(response => {
-            console.log(response)
-            console.log(response.data)
+
             this.setState({ products: response.data, productsList: response.data })
-            console.log(this.state.products.name)
+
         }, error => {
             console.log(error)
         })
@@ -36,7 +35,7 @@ class Product extends React.Component {
 
     deleteProductById = (id) => {
         axios.delete("http://localhost:3000/allProducts/" + id).then(response => {
-            console.log(response)
+
             this.getAllProducts()
         }, error => {
             console.log(error)
@@ -62,7 +61,7 @@ class Product extends React.Component {
                     price={product.price}
                     quantity={product.quantity}
                     category={product.category}
-                    status={product.status}
+
                     deleteId={this.deleteProductById}
                     editId={this.editProductById}
                 >
@@ -100,7 +99,7 @@ class Product extends React.Component {
 
 
                 <center>
-                    <input type="text" placeholder="Search " value={this.state.searchValue} onChange={this.getSearch}></input>
+                    <input type="text" placeholder="Search by Name or Category" value={this.state.searchValue} onChange={this.getSearch}></input>
 
                     <button className="add" onClick={this.addProduct}>Add Product</button>
                     <br></br>

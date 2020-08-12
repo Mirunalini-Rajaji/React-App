@@ -41,33 +41,34 @@ class Dashboard extends React.Component {
         return (
             <div>
                 <Navbar></Navbar>
-                <center>
-                    <Chart
-                        width={'620px'}
-                        height={'400px'}
-                        chartType="PieChart"
-                        data={this.state.barData}
-                        options={{
-                            title: 'Top Categories', is3D: true,
-                        }}
-                        rootProps={{ 'data-testid': '1' }}>
-                    </Chart>
+                <center className="chart">
+                    <div >
+                        <Chart
+                            width={'620px'}
+                            height={'400px'}
+                            chartType="PieChart"
+                            data={this.state.barData}
+                            options={{
+                                title: 'Top Categories', is3D: true,
+                            }}
+                            rootProps={{ 'data-testid': '1' }}>
+                        </Chart>
 
-                    <Chart
-                        width={'700px'}
-                        height={'300px'}
-                        chartType="Histogram"
-                        data={this.state.chatData}
-                        options={{
-                            title: 'Product Details',
-                            legend: { position: 'none' },
-                            colors: ['orange'],
-                            histogram: { lastBucketPercentile: 5 },
-                            vAxis: { scaleType: 'mirrorLog' },
-                        }}
-                        rootProps={{ 'data-testid': '3' }}>
-                    </Chart>
-
+                        <Chart
+                            width={'500px'}
+                            height={'300px'}
+                            chartType="Histogram"
+                            data={this.state.chatData}
+                            options={{
+                                title: 'Product Details',
+                                legend: { position: 'none' },
+                                // colors: ['orange'],
+                                // histogram: { lastBucketPercentile: 5 },
+                                // vAxis: { scaleType: 'mirrorLog' },
+                            }}
+                            rootProps={{ 'data-testid': '1' }}>
+                        </Chart>
+                    </div>
                 </center>
 
             </div>

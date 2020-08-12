@@ -1,5 +1,4 @@
 import React from 'react';
-
 import './content.css'
 import Axios from 'axios';
 import Navbar from '../header/navbar';
@@ -14,23 +13,17 @@ class AddProduct extends React.Component {
             productPrice: 0,
             productQuantity: 0,
             productCategory: '',
-            productStatus: '',
             iderror: '',
             nameerror: '',
-            statuserror: '',
             categoryerror: '',
             imageerror: '',
-            signinerror: '',
+
 
         }
     }
 
 
-    getId = (event) => {
-        console.log(event.target.value)
-        this.setState({ productId: event.target.value })
 
-    }
     getName = (event) => {
         this.setState({ productName: event.target.value })
         this.checkName()
@@ -47,10 +40,7 @@ class AddProduct extends React.Component {
         this.setState({ productCategory: event.target.value })
         this.checkCategory()
     }
-    getStatus = (event) => {
-        this.setState({ productStatus: event.target.value })
-        this.checkStatus()
-    }
+
     getImage = (event) => {
         console.log(event.target.value.substr(12))
         this.setState({ productImage: event.target.value.substr(12) })
@@ -61,7 +51,7 @@ class AddProduct extends React.Component {
     checkName = () => {
         let nameerror = ''
         if (this.state.productName.length < 1) {
-            nameerror = "Give Valid Name"
+            nameerror = "* Give Valid Name"
             this.setState({ nameError: nameerror })
         } else {
             this.setState({ nameError: "" })
@@ -71,22 +61,14 @@ class AddProduct extends React.Component {
 
     checkCategory = () => {
         let categoryerror = ''
-        if (this.state.productCategory.length <= 3) {
-            categoryerror = "Add valid category"
+        if (this.state.productCategory.length <= 1) {
+            categoryerror = "* Give valid Category "
             this.setState({ categoryError: categoryerror })
         } else {
             this.setState({ categoryError: "" })
         }
     }
-    checkStatus = () => {
-        let statuserror = ''
-        if (!this.state.productStatus.includes('stoc' || 'STOC')) {
-            statuserror = "Give InStock or OutStock details"
-            this.setState({ statusError: statuserror })
-        } else {
-            this.setState({ statusError: "" })
-        }
-    }
+
     checkImage = () => {
         let imageerror = ''
         if (this.state.productImage) {
@@ -97,7 +79,7 @@ class AddProduct extends React.Component {
         }
     }
 
-    addProduct = async () => {
+    addProduct = () => {
         let productRequest = {
             "id": this.state.productId,
             "image": this.state.productImage,
@@ -105,16 +87,11 @@ class AddProduct extends React.Component {
             "price": this.state.productPrice,
             "quantity": this.state.productQuantity,
             "category": this.state.productCategory,
-            "status": this.state.productStatus
+
 
         }
-        const data = await Axios.get('http://localhost:3000/allProducts?id=' + this.state.productId);
-        if (data.data.length !== 0) {
-            if (this.state.productId === data.data[0].id) {
-                alert("ProductId must be unique")
-            }
-        }
-        else if (this.state.nameError === '' && this.state.categoryError === '' && this.state.statusError === '' && this.state.imageError === '') {
+
+        if (this.state.nameError === '' && this.state.categoryError === '' && this.state.imageError === '') {
             Axios.post("http://localhost:3000/allProducts", productRequest)
                 .then(response => {
                     console.log(response)
@@ -143,21 +120,20 @@ class AddProduct extends React.Component {
                     <fieldset style={{ marginTop: '2px' }}  >
                         <center style={{ padding: '10px' }}>
                             <h2 >Add Product</h2>
-                            <input type="text" placeholder="Product Id" onChange={this.getId} required style={{ width: '60%' }} ></input>
-                            {/* {this.state.idError}<br></br> */}
-                            <input type="text" placeholder="Product Name" onChange={this.getName} required style={{ width: '60%' }}></input>
-                            {this.state.nameError}<br></br>
-                            <input type="number" placeholder="Price" onChange={this.getPrice} min="1" required style={{ margin: '12px 10px', width: '28%' }} ></input>
 
-                            <input type="number" placeholder="Quantity" onChange={this.getQuantity} min="1" required style={{ width: '30%' }}></input>
+                            <input type="text" placeholder="Product Name" onChange={this.getName} required >
+
+                            </input>
+                            <div>{this.state.nameError}</div>
+                            <input type="number" placeholder="Price" onChange={this.getPrice} min="1" required ></input>
                             <br></br>
-                            <input type="text" placeholder="Category" onChange={this.getCategory} required style={{ width: '26%' }} ></input>
+                            <input type="number" placeholder="Quantity" onChange={this.getQuantity} min="1" required ></input>
+                            <br></br>
+                            <input type="text" placeholder="Category" onChange={this.getCategory} required  ></input>
+                            <div>{this.state.categoryError}</div>
 
-                            {this.state.categoryError}
-                            <input type="text" placeholder="Status" onChange={this.getStatus} required style={{ margin: '12px 10px', width: '30%' }} />
-                            {this.state.statusError}<br></br>
                             <input type="file" onChange={this.getImage} required multiple accept='image/*'></input>
-                            {this.state.imageError}
+
 
 
                             <button type="submit" onClick={this.addProduct} >Add</button>
