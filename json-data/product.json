@@ -1,28 +1,44 @@
 {
   "allProducts": [
     {
-      "id": "vjLP84d",
-      "image": "logo.png",
-      "name": "jeans",
-      "price": "1000",
-      "quantity": "12",
-      "category": "clothes"
-    },
-    {
-      "id": "3SxlhGo",
-      "image": "earphone.jpg",
-      "name": "headset",
-      "price": "1",
-      "quantity": "10",
-      "category": "electronics"
-    },
-    {
-      "id": "dHojtTr",
+      "id": 6,
       "image": "toys.jpg",
-      "name": "teddy",
-      "price": "220",
-      "quantity": "5",
-      "category": "toys"
+      "name": "aaaa",
+      "price": 100,
+      "quantity": "11",
+      "category": "ddddd"
+    },
+    {
+      "id": 7,
+      "image": "bag.jpeg",
+      "name": "aaa",
+      "price": "30",
+      "quantity": "3",
+      "category": "ddddd"
+    },
+    {
+      "id": 13,
+      "image": "toys.jpg",
+      "name": "ss",
+      "price": "1",
+      "quantity": "1",
+      "category": "slipper"
+    },
+    {
+      "image": "toys.jpg",
+      "name": "ssss",
+      "price": "1",
+      "quantity": "1",
+      "category": "shoe",
+      "id": 14
+    },
+    {
+      "id": 15,
+      "image": "earphone.jpg",
+      "name": "werr",
+      "price": "11",
+      "quantity": "1",
+      "category": "shoe"
     }
   ],
   "newuser": [
@@ -35,108 +51,20 @@
     },
     {
       "firstName": "miruna",
-      "lastName": "fgggggg",
-      "emailAddress": "@gmail.com",
-      "pwd": "777777",
-      "id": "zu1QP4Z"
-    },
-    {
-      "firstName": "kavitha",
       "lastName": "Rajaji",
-      "emailAddress": "@gmail.com",
-      "pwd": "7777777",
-      "id": "ywqkdOQ"
-    },
-    {
-      "firstName": "miruna",
-      "lastName": "kavitha",
-      "emailAddress": "miru@gmail.com",
-      "pwd": "asdfgh",
-      "id": "V26DjGM"
-    },
-    {
-      "firstName": "iiiiii",
-      "lastName": "hkkkkd",
-      "emailAddress": "a@gmail.com",
-      "pwd": "123456",
-      "id": "85Jr_Be"
-    },
-    {
-      "firstName": "kabith",
-      "lastName": "hythum",
-      "emailAddress": "mirunalini@yahoo.com",
-      "pwd": "miruna",
-      "id": "1uDPtEP"
-    },
-    {
-      "firstName": "jihuln",
-      "lastName": "lkudbm",
       "emailAddress": "miruna@gmail.com",
-      "pwd": "123456",
-      "id": "Tbnxauh"
+      "pwd": "Mirunalini*1",
+      "id": "2jzmKYV"
+    }
+  ],
+  "allcategory": [
+    {
+      "id": 1,
+      "category": "mobiles"
     },
     {
-      "firstName": "fffffff",
-      "lastName": "fffffff",
-      "emailAddress": "@ail.com",
-      "pwd": "4444444",
-      "id": "m0Zp-gK"
-    },
-    {
-      "firstName": "hdkfkjf",
-      "lastName": "yyyyyu",
-      "emailAddress": "l@gmail.com",
-      "pwd": "7777777",
-      "id": "Q-14GO5"
-    },
-    {
-      "firstName": "rajaji",
-      "lastName": "kavitha",
-      "emailAddress": "11@gmail.com",
-      "pwd": "1234567",
-      "id": "5iNhjeZ"
-    },
-    {
-      "firstName": "liniya",
-      "lastName": "miruna",
-      "emailAddress": "lini@gmail.com",
-      "pwd": "zzzzzz",
-      "id": "JHpp8J1"
-    },
-    {
-      "firstName": "jjjjj",
-      "lastName": "jjjjj",
-      "emailAddress": "jj@gmail.com",
-      "pwd": "1111111",
-      "id": "E2PHySQ"
-    },
-    {
-      "firstName": "hello",
-      "lastName": "hello",
-      "emailAddress": "22@gmail.com",
-      "pwd": "111111",
-      "id": "oTcaVyM"
-    },
-    {
-      "firstName": "sobitha",
-      "lastName": "rajaji",
-      "emailAddress": "sobi@gmail.com",
-      "pwd": "1234567890",
-      "id": "8cGgPgG"
-    },
-    {
-      "firstName": "niveth",
-      "lastName": "gopik",
-      "emailAddress": "nive@gmail.com",
-      "pwd": "222222",
-      "id": "1SvLZVx"
-    },
-    {
-      "firstName": "diyan",
-      "lastName": "diyan",
-      "emailAddress": "dd@gmail.com",
-      "pwd": "aaaaaa",
-      "id": "oe0H61W"
+      "category": "shoe",
+      "id": 2
     }
   ]
 }

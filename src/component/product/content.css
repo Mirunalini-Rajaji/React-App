@@ -1,10 +1,10 @@
-*,
+/* *,
 *::after,
 *::before{
     box-sizing: border-box;
-}
+} */
 center{
-    padding-top: 100px;
+    padding-top: 50px;
 }
 fieldset{
     box-sizing: border-box;
@@ -17,7 +17,12 @@ fieldset{
    max-width:100%;
    height: auto;
 }
-input[type=text],[type=password],[type=number]{
+.searchBar {
+    margin-left: 50px;
+    
+    
+}
+input[type=text],[type=password],[type=number],[type=file],select{
     width: 35%;
     padding: 12px;
     margin-top: 25px;
@@ -26,6 +31,7 @@ input[type=text],[type=password],[type=number]{
     box-sizing: border-box;
     resize: vertical;
   }
+ 
   button[type=submit] {
     background-color: #4CAF50;
     color: white;
@@ -36,16 +42,24 @@ input[type=text],[type=password],[type=number]{
     margin-top: 30px;
   }
   form{
-padding: 140px 130px 10px;
+padding: 40px 100px 10px;
 
   }
   /* .link{
       font-size: 49px;
   } */
   @media screen and (max-width: 50px) {
-    button[type=submit],input[type=text],[type=password],form,.link,.div,.chart {
+    button[type=submit],input[type=text],[type=password],[type=file],select,form,.link,.div,.chart {
       width: 40%;
       margin-top: 0;
+    }
+  }
+  @media screen and (max-width: 50px) {
+    .add {
+      width: 40%;
+      margin-top: 0;
+      display: block;
+     resize: none;
     }
   }
  label{
@@ -78,20 +92,22 @@ padding: 140px 130px 10px;
      box-shadow:0 4px 8px 0 rgba(0,0,0,0.2);
      padding: 4px;
      text-align: center;
-     background-color: #ae9abd;
+     background-color: #dad3e0;
  }
  .add{
-    background-color: rgb(146, 89, 184);
+    background-color: rgb(56, 29, 82);
     color: white;
     padding: 12px 20px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     float: right;
-    margin-top:20px
+    margin-top:26px;
+    margin-right: 0px;
+    
  }
  .update{
-    background-color: rgb(54, 138, 28);
+    background-color: rgb(68, 73, 67);
     color: white;
     padding: 5px 5px;
     border: none;
@@ -100,7 +116,7 @@ padding: 140px 130px 10px;
     
  }
  .delete{
-    background-color: rgb(231, 51, 38);
+    background-color:  rgb(68, 73, 67);
     color: white;
     padding: 5px 5px;
     border: none;
@@ -130,13 +146,16 @@ padding: 140px 130px 10px;
    display: block;
    clear: both;
 }
-@media screen and (max-width:600px){
+.bg{
+    background-color: darkcyan;
+}
+/* @media screen and (max-width:600px){
     .columnChart{
         width: 100%;
         display: block;
         margin-bottom: 20px;
     }
-}
+} */
 .cardChart{
     box-shadow:0 4px 2px 0 rgba(0,0,0,0.2);
     padding: 14px;

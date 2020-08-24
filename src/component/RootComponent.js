@@ -1,21 +1,33 @@
 import React from 'react';
-import Header from "./spa/header/header";
-import Content from "./spa/content/Content";
+import { Switch, Route } from "react-router-dom";
+import Dashboard from './dashboard/dashboard';
+import Product from './product/product';
+import AddProduct from './product/addproduct';
+import Login from './login/login';
+import SignIn from './signin/signIn';
+import EditProduct from './product/editProduct';
+import Category from './category/category';
 
-class RootComponent extends React.Component {
 
 
+class Router extends React.Component {
 
     render() {
         return (
             <div>
-                <Header></Header>
-                <Content></Content>
-            </div>
-        )
-    }
 
+                <Switch>
+                    <Route exact path='/' component={Login}></Route>
+                    <Route path='/createaccount' component={SignIn}></Route>
+                    <Route path='/dashboard' component={Dashboard}></Route>
+                    <Route path='/products' component={Product}></Route>
+                    <Route path="/addproduct" component={AddProduct}></Route>
+                    <Route path="/editproduct" component={EditProduct}></Route>
+                    <Route path="/addcategory" component={Category}></Route>
+                </Switch>
+            </div>
+        );
+    }
 }
 
-
-export default RootComponent
+export default Router;

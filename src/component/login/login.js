@@ -71,21 +71,25 @@ class Login extends React.Component {
         return (
 
             <div >
+               
+
+<h1>Inventory</h1>
+
                 <form >
-                    <fieldset style={{ marginTop: '12px' }} >
+                     {/* <fieldset style={{ marginTop: '12px' }} > */}
                         <center style={{ padding: '20px' }}>
 
                             <h2 >Login</h2>
 
                             <input type="text" placeholder="Email Address" required onChange={this.getEmail} >
                             </input><br></br>
-                            <input type="password" placeholder="Password" required onChange={this.getPwd}></input> {this.state.pwdError}<br></br>
+                            <input type="password" placeholder="Password" required onChange={this.getPwd}></input> <br></br>
 
                             <button type="submit" onClick={this.openDashboard} >Login</button><br></br>
                             {/* <Link to="/dashboard" style={{textDecoration:"none",color:"Black"}}>Login</Link></button><br></br> */}
-                            <p>Don't have an account? <Link to="/createaccount" style={{ fontSize: "17px", color: "violet" }}>Create Account</Link></p>
+                            <p>Don't have an account? <Link to="/createaccount" style={{ fontSize: "17px", color: " rgb(40, 2, 90)" }}>Create Account</Link></p>
                         </center>
-                    </fieldset>
+                    {/* </fieldset> */}
                 </form>
 
             </div>

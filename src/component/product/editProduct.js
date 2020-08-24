@@ -1,7 +1,8 @@
 import React from 'react';
 import './content.css'
 import Axios from 'axios'
-import Navbar from '../header/navbar';
+
+import Header from '../header/header';
 class EditProduct extends React.Component {
     constructor(props) {
         super(props)
@@ -57,8 +58,9 @@ class EditProduct extends React.Component {
 
     checkName = () => {
         let nameerror = ''
+       
         if (this.state.name.length < 2) {
-            nameerror = "* Give Valid Name"
+            nameerror = "* Name must be greater than 2"
             this.setState({ nameError: nameerror ,buttonStatus:true})
         } else {
             this.setState({ nameError: "" ,buttonStatus:false})
@@ -98,19 +100,20 @@ class EditProduct extends React.Component {
         if (this.props.location.state === undefined) {
             return (
                 <div>
-                    <center>
-                        <h3>Product Not Available!!</h3><br></br>
+                     <Header></Header>
+                    <div style={{textAlign:'center',padding:'20px'}}>
+                        <h3>Product Not Available!!</h3>
                         <button type="submit" onClick={this.goBack}>Go Back</button>
-                    </center>
+                        </div>
                 </div>
             )
         }
         return (
             <div >
-                <Navbar></Navbar>
+                <Header></Header>
                 <form onSubmit={this.editProduct}>
-                    <fieldset style={{ padding: '20px' }}>
-                        <center style={{ padding: '0px' }}>
+                    {/* <fieldset style={{ padding: '20px' }}> */}
+                        <center style={{ padding: '20px' }}>
                             <h2>Update Product</h2>
 
                             <label >Product Name </label>
@@ -128,7 +131,7 @@ class EditProduct extends React.Component {
 
                             <button type="submit" disabled={this.state.buttonStatus}>Update</button><br></br>
                         </center>
-                    </fieldset>
+                    {/* </fieldset> */}
                 </form>
 
             </div>

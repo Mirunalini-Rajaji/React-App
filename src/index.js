@@ -4,14 +4,14 @@ import React from "react";
 import { HashRouter } from "react-router-dom";
 
 
-import RootComponent from "./component/RootComponent";
+import App from "./component/App";
 
 
 
 
 ReactDOM.render(  
                     <HashRouter>
-                        <RootComponent></RootComponent> 
+                       <App />
                     </HashRouter>
                
 

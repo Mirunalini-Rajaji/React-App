@@ -2,26 +2,41 @@ import React from 'react';
 import './content.css'
 import axios from 'axios';
 import ProductDetail from './productDetail';
-import Navbar from '../header/navbar';
+
+import Header from '../header/header';
 
 
 class Product extends React.Component {
 
     constructor(props) {
         super(props)
+        // this.sortName = this.sortName.bind(this)
         this.state = {
             products: [],
             productsList: [],
             myid: 0,
-            searchValue: ''
+            searchValue: '',
+            sortvalue:false
+            
         }
-
+        
     }
+   
 
     componentWillMount() {
 
         this.getAllProducts()
+        // this.sortName()
     }
+    // sortName=()=>{
+    //     console.log("inside sort")
+    //     let Request={
+    //         "price" : this.state.price
+    //     }
+    //     axios.get("http://localhost:3000/allProducts",Request)
+    //     .then((response)=>{response.data.sort((a,b)=>a.price-b.price);
+    //     this.setState({data:response})})
+    // }
 
     getAllProducts = () => {
         axios.get("http://localhost:3000/allProducts").then(response => {
@@ -44,6 +59,7 @@ class Product extends React.Component {
 
     editProductById = (id) => {
         this.setState({ myid: id })
+        console.log("edit")
         this.props.history.push({
             pathname: '/editproduct',
             state: { myid: id }
@@ -51,6 +67,7 @@ class Product extends React.Component {
     }
 
     renderAllProducts = () => {
+        
         return this.state.products.map(product => {
             return (
                 <ProductDetail
@@ -70,9 +87,9 @@ class Product extends React.Component {
             )
         })
     }
-    addProduct = () => {
-        this.props.history.push('/addproduct')
-    }
+    // addProduct = () => {
+    //     this.props.history.push('/addproduct')
+    // }
 
 
     getSearch = (e) => {
@@ -91,19 +108,43 @@ class Product extends React.Component {
         this.setState({ products: searchF })
 
     }
+    // sortName(event){
+    //     const {products} = this.state;
+    //     let newlist = products.reverse();
+    //     this.setState({products:newlist.sort((a,b)=>a.name<b.name)})
+    //     console.log(products)
+    // }
+    sortName=()=>{
+        const newlist=this.state.products;
+        if(this.state.sortvalue===false){
+            newlist.sort((a,b)=>
+                a.price - b.price)            
+            this.setState({products:newlist})
+            return this.setState({sortvalue:true})
+        }
+        if(this.state.sortvalue===true){
+            this.getAllProducts()
+            return this.setState({sortvalue:false})
+        }
+    }
+    
     render() {
 
         return (
             <div>
-                <Navbar></Navbar>
+                <Header></Header>
+               
+                {/* <select>
+                    <option defaultValue="sort">Sort</option>
+                    <option value="low to high" onChange={this.sortName}>Low o High</option>
+                        </select> */}
 
-
-                <center>
-                    <input type="text" placeholder="Search by Name or Category" value={this.state.searchValue} onChange={this.getSearch}></input>
-
-                    <button className="add" onClick={this.addProduct}>Add Product</button>
+               <div>
+                    <input type="text" className="searchBar" placeholder="Search by Name or Category" value={this.state.searchValue} onChange={this.getSearch}></input>
+                    <button className="add" onClick={this.sortName}>Sort by Price</button>
+                    {/* <button className="add" onClick={this.addProduct}>Add Product</button> */}
                     <br></br>
-                </center>
+                    </div>
 
                 {this.renderAllProducts()}
 
