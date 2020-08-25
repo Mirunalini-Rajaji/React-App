@@ -1,11 +1,11 @@
 import React from 'react';
 import { Switch, Route } from "react-router-dom";
 import Dashboard from './dashboard/dashboard';
-import Product from './product/product';
-import AddProduct from './product/addproduct';
+import Product from './Products/product';
+import AddProduct from './Products/addproduct';
 import Login from './login/login';
 import SignIn from './signin/signIn';
-import EditProduct from './product/editProduct';
+import EditProduct from './Products/editProduct';
 import Category from './category/category';
 
 

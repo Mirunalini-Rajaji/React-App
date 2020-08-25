@@ -4,32 +4,32 @@ import Axios from 'axios';
 import Header from '../header/header';
 
 class Category extends React.Component {
-   
-    constructor(props){
+
+    constructor(props) {
         super(props)
-        this.state={
-           name:'',
-           nameerror:'',
-           buttonStatus:true
+        this.state = {
+            name: '',
+            nameerror: '',
+            buttonStatus: true
         }
     }
-    getName=(event)=>{
-        this.setState({name:event.target.value})
+    getName = (event) => {
+        this.setState({ name: event.target.value })
         this.checkName()
     }
-    checkName=()=>{
-        let nameerror=''
-        if(this.state.name.length<3){
-            nameerror="Category must be greater than 3"
-            this.setState({nameError:nameerror,buttonStatus:true})
-        }else{
-            this.setState({nameError:'',buttonStatus:false})
+    checkName = () => {
+        let nameerror = ''
+        if (this.state.name.length < 3) {
+            nameerror = "Category must be greater than 3"
+            this.setState({ nameError: nameerror, buttonStatus: true })
+        } else {
+            this.setState({ nameError: '', buttonStatus: false })
         }
     }
 
-    addCat=async()=>{
-        let cat={
-            "category":this.state.name
+    addCat = async () => {
+        let cat = {
+            "category": this.state.name
         }
         const data = await Axios.get('http://localhost:3000/allcategory?category=' + this.state.name);
         console.log(this.state.name)
@@ -38,33 +38,33 @@ class Category extends React.Component {
             if (this.state.name === data.data[0].category) {
                 alert("category is already added")
             }
-        }else if(this.state.nameerror===''){
-        Axios.post('http://localhost:3000/allcategory',cat).then(response=>{
-            this.props.history.push('/products')
-        },error=>{
-            console.log(error)
-        })
+        } else if (this.state.nameerror === '') {
+            Axios.post('http://localhost:3000/allcategory', cat).then(response => {
+                this.props.history.push('/products')
+            }, error => {
+                console.log(error)
+            })
+        }
     }
-}
-    render() { 
-        return (  
+    render() {
+        return (
             <div>
-               <Header></Header>
-               
-                    <form>
-                    <center style={{padding:'20px'}}>
+                <Header></Header>
+
+                <form>
+                    <center style={{ padding: '20px' }}>
                         {/* <fieldset> */}
-                            <h2>Add Category</h2>
-                            <input type="text" placeholder="Category" onChange={this.getName}></input>
-                            <div>{this.state.nameError}</div>
-                            <button type="submit" onClick={this.addCat} disabled={this.state.buttonStatus}>Add</button>
+                        <h2>Add Category</h2>
+                        <input type="text" placeholder="Category" onChange={this.getName}></input>
+                        <div>{this.state.nameError}</div>
+                        <button type="submit" onClick={this.addCat} disabled={this.state.buttonStatus}>Add</button>
                         {/* </fieldset> */}
-                        </center>
-                    </form>
-               
+                    </center>
+                </form>
+
             </div>
         );
     }
 }
- 
+
 export default Category;

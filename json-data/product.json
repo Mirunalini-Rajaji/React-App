@@ -3,42 +3,42 @@
     {
       "id": 6,
       "image": "toys.jpg",
-      "name": "aaaa",
+      "name": "Train",
       "price": 100,
       "quantity": "11",
-      "category": "ddddd"
+      "category": "Toys"
     },
     {
       "id": 7,
       "image": "bag.jpeg",
-      "name": "aaa",
-      "price": "30",
+      "name": "handbag",
+      "price": "300",
       "quantity": "3",
-      "category": "ddddd"
-    },
-    {
-      "id": 13,
-      "image": "toys.jpg",
-      "name": "ss",
-      "price": "1",
-      "quantity": "1",
-      "category": "slipper"
+      "category": "Bags"
     },
     {
       "image": "toys.jpg",
-      "name": "ssss",
-      "price": "1",
+      "name": "Car",
+      "price": "100",
       "quantity": "1",
-      "category": "shoe",
+      "category": "Toys",
       "id": 14
     },
     {
-      "id": 15,
-      "image": "earphone.jpg",
-      "name": "werr",
-      "price": "11",
+      "image": "mobile.jpg",
+      "name": "Honor",
+      "price": "15000",
+      "quantity": "2",
+      "category": "Mobiles",
+      "id": 15
+    },
+    {
+      "image": "shoe.jpg",
+      "name": "sauks",
+      "price": "500",
       "quantity": "1",
-      "category": "shoe"
+      "category": "Shoe",
+      "id": 16
     }
   ],
   "newuser": [
@@ -50,21 +50,41 @@
       "id": ""
     },
     {
-      "firstName": "miruna",
-      "lastName": "Rajaji",
-      "emailAddress": "miruna@gmail.com",
-      "pwd": "Mirunalini*1",
-      "id": "2jzmKYV"
+      "firstName": "diyaa",
+      "lastName": "diyaa",
+      "emailAddress": "diya@gmail.com",
+      "pwd": "Diya*1234",
+      "id": "u5CKm93"
     }
   ],
   "allcategory": [
     {
       "id": 1,
-      "category": "mobiles"
+      "category": "Select Category"
     },
     {
-      "category": "shoe",
+      "category": "Mobiles",
       "id": 2
+    },
+    {
+      "category": "Electronics",
+      "id": 3
+    },
+    {
+      "category": "Toys",
+      "id": 4
+    },
+    {
+      "category": "Bags",
+      "id": 5
+    },
+    {
+      "category": "Shoe",
+      "id": 6
+    },
+    {
+      "category": "Furnitures",
+      "id": 7
     }
   ]
 }

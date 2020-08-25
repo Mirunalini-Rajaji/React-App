@@ -15,7 +15,7 @@ class EditProduct extends React.Component {
             category: '',
             status: '',
             nameerror: '',
-           buttonStatus:false
+            buttonStatus: false
 
         }
     }
@@ -58,16 +58,16 @@ class EditProduct extends React.Component {
 
     checkName = () => {
         let nameerror = ''
-       
+
         if (this.state.name.length < 2) {
             nameerror = "* Name must be greater than 2"
-            this.setState({ nameError: nameerror ,buttonStatus:true})
+            this.setState({ nameError: nameerror, buttonStatus: true })
         } else {
-            this.setState({ nameError: "" ,buttonStatus:false})
+            this.setState({ nameError: "", buttonStatus: false })
         }
     }
 
-     editProduct = () => {
+    editProduct = () => {
 
         let productRequest = {
             "id": this.state.id,
@@ -78,7 +78,7 @@ class EditProduct extends React.Component {
             "category": this.state.category
 
         }
-      
+
 
         Axios.put("http://localhost:3000/allProducts/" + this.state.id, productRequest)
             .then(response => {
@@ -87,9 +87,9 @@ class EditProduct extends React.Component {
             }, error => {
                 console.log(error)
             })
-            
 
-        
+
+
 
 
     }
@@ -100,11 +100,11 @@ class EditProduct extends React.Component {
         if (this.props.location.state === undefined) {
             return (
                 <div>
-                     <Header></Header>
-                    <div style={{textAlign:'center',padding:'20px'}}>
+                    <Header></Header>
+                    <div style={{ textAlign: 'center', padding: '20px' }}>
                         <h3>Product Not Available!!</h3>
                         <button type="submit" onClick={this.goBack}>Go Back</button>
-                        </div>
+                    </div>
                 </div>
             )
         }
@@ -112,26 +112,26 @@ class EditProduct extends React.Component {
             <div >
                 <Header></Header>
                 <form onSubmit={this.editProduct}>
-                    {/* <fieldset style={{ padding: '20px' }}> */}
-                        <center style={{ padding: '20px' }}>
-                            <h2>Update Product</h2>
+                   
+                    <center style={{ padding: '20px' }}>
+                        <h2>Update Product</h2>
 
-                            <label >Product Name </label>
-                            <input type="text" value={this.state.name} onChange={this.getName} required style={{ marginLeft: '3px' }}></input>
-                            <div>{this.state.nameError}</div>
-                            <label >Price </label>
-                            <input type="number" value={this.state.price} onChange={this.getPrice} required min="1" style={{ marginLeft: '57px' }}  ></input>
-                            <br></br>
-                            <label >Quantity </label>
-                            <input type="number" value={this.state.quantity} onChange={this.getQuantity} required min="1" style={{ marginLeft: '42px' }}  ></input>
-                            <br></br>
-                            <label >Category </label>
-                            <input type="text" value={this.state.category} onChange={this.getCategory} readOnly style={{ marginLeft: '42px' }} ></input>
-                            <br></br>
+                        <label >Product Name </label>
+                        <input type="text" value={this.state.name} onChange={this.getName} required style={{ marginLeft: '3px' }}></input>
+                        <div>{this.state.nameError}</div>
+                        <label >Price </label>
+                        <input type="number" value={this.state.price} onChange={this.getPrice} required min="1" style={{ marginLeft: '57px' }}  ></input>
+                        <br></br>
+                        <label >Quantity </label>
+                        <input type="number" value={this.state.quantity} onChange={this.getQuantity} required min="1" style={{ marginLeft: '42px' }}  ></input>
+                        <br></br>
+                        <label >Category </label>
+                        <input type="text" value={this.state.category} onChange={this.getCategory} readOnly style={{ marginLeft: '42px' }} ></input>
+                        <br></br>
 
-                            <button type="submit" disabled={this.state.buttonStatus}>Update</button><br></br>
-                        </center>
-                    {/* </fieldset> */}
+                        <button type="submit" disabled={this.state.buttonStatus}>Update</button><br></br>
+                    </center>
+                  
                 </form>
 
             </div>
