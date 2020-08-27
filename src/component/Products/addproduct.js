@@ -16,7 +16,8 @@ class AddProduct extends React.Component {
             nameerror: '',
             categoryerror: '',
             imageerror: '',
-            allcty: []
+            allcty: [],
+            success:false
 
         }
     }
@@ -96,27 +97,35 @@ class AddProduct extends React.Component {
             Axios.post("http://localhost:3000/allProducts", productRequest)
                 .then(response => {
                     console.log(response)
-
+                    
                 }, error => {
                     console.log(error)
                 })
-            this.props.history.push('/products')
+                this.setState({success:true})
+            // this.props.history.push('/products')
         }
 
-
-
     }
-
+continue=()=>{
+    this.props.history.push('/products')
+}
 
 
     render() {
+        if(this.state.success){
+            return (
+                <div>
+                   <Header></Header>
+                    <div style={{ textAlign: 'center', paddingTop: '50px'}}>
+                        <h3>Product Added Successfully!!</h3>
+                        <button type="submit" onClick={this.continue}>Ok</button>
+                    </div>
+                </div>
+            )
+        }
         return (
             <div >
                 <Header></Header>
-
-
-
-
 
                 <form >
 
@@ -132,7 +141,7 @@ class AddProduct extends React.Component {
                         <input type="number" placeholder="Quantity" onChange={this.getQuantity} min="1" required ></input>
                         <br></br>
                        
-                        <select name="list" id="list" onChange={this.getCategory}  >
+                        <select name="list" id="list" onChange={this.getCategory} required >
                             {this.state.allcty.map(cty => <option key={cty.id} value={cty.category}>
                                 {cty.category}
                             </option>)}

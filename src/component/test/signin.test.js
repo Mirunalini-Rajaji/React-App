@@ -5,6 +5,7 @@ import { mount ,configure} from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import {MemoryRouter as Router} from 'react-router-dom'
 import {  render } from '@testing-library/react';
+import renderer from "react-test-renderer";
 import '@testing-library/jest-dom/extend-expect'
 configure({ adapter: new Adapter() })
 
@@ -36,7 +37,6 @@ it(" check firstName", () => {
 it(" check email", () => {
     const wrapper = mount(<input type="text" placeholder="Email Address" />);
     const input = wrapper.find("input");
-    // expect("input").toHaveValue('@')
     expect(input.prop("type")).toEqual("text");
     expect(input.prop("placeholder")).toEqual("Email Address");
   });
@@ -46,6 +46,11 @@ it(" check password", () => {
     expect(input.prop("type")).toEqual("password");
     expect(input.prop("placeholder")).toEqual("Password");
 });
+it('check button type',()=>{
+  const link = renderer.create(<Router> <button type="submit" ></button></Router>).toJSON()
+  expect(link).toMatchSnapshot()
+})
+
 
 
 

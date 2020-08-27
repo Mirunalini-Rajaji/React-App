@@ -17,12 +17,12 @@
       "category": "Bags"
     },
     {
+      "id": 14,
       "image": "toys.jpg",
       "name": "Car",
       "price": "100",
       "quantity": "1",
-      "category": "Toys",
-      "id": 14
+      "category": "Toys"
     },
     {
       "image": "mobile.jpg",
@@ -39,6 +39,14 @@
       "quantity": "1",
       "category": "Shoe",
       "id": 16
+    },
+    {
+      "id": 17,
+      "image": "logo.png",
+      "name": "wood",
+      "price": "500",
+      "quantity": "2",
+      "category": "Furnitures"
     }
   ],
   "newuser": [
@@ -48,14 +56,8 @@
       "emailAddress": "miru@gmail.com",
       "pwd": "adc",
       "id": ""
-    },
-    {
-      "firstName": "diyaa",
-      "lastName": "diyaa",
-      "emailAddress": "diya@gmail.com",
-      "pwd": "Diya*1234",
-      "id": "u5CKm93"
     }
+   
   ],
   "allcategory": [
     {
@@ -85,6 +87,10 @@
     {
       "category": "Furnitures",
       "id": 7
+    },
+    {
+      "category": "Clothes",
+      "id": 8
     }
   ]
 }

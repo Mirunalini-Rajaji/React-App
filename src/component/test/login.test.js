@@ -1,10 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom'
 import Login from '../login/login'
+import { Link } from "react-router-dom";
 import { mount, configure} from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import {MemoryRouter as Router} from 'react-router-dom'
 import {  render } from '@testing-library/react';
+import renderer from "react-test-renderer";
 import '@testing-library/jest-dom/extend-expect'
 configure({ adapter: new Adapter() })
 
@@ -34,6 +36,10 @@ it(" check password", () => {
 it('check if p renders correctly', ()=>{
     const {getByTestId} = render(<Router><Login></Login></Router>)
     expect(getByTestId('p')).toHaveTextContent('Dont have an account?')
+})
+it('check link',()=>{
+    const link = renderer.create(<Router><Link to="/createaccount"></Link></Router>).toJSON()
+    expect(link).toMatchSnapshot()
 })
 
 

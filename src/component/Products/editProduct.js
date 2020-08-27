@@ -15,7 +15,8 @@ class EditProduct extends React.Component {
             category: '',
             status: '',
             nameerror: '',
-            buttonStatus: false
+            buttonStatus: false,
+            success:false
 
         }
     }
@@ -83,7 +84,7 @@ class EditProduct extends React.Component {
         Axios.put("http://localhost:3000/allProducts/" + this.state.id, productRequest)
             .then(response => {
                 console.log(response)
-                this.props.history.push('/products')
+               this.setState({success:true})
             }, error => {
                 console.log(error)
             })
@@ -97,6 +98,18 @@ class EditProduct extends React.Component {
         this.props.history.push('/products')
     }
     render() {
+        if(this.state.success){
+            return (
+                <div>
+                    <h1>Inventory</h1>
+                    <div style={{ textAlign: 'center', paddingTop: '50px'}}>
+                        <h3>Product Updated Successfully!!</h3>
+                        <h4>Click Ok to Continue</h4>
+                        <button type="submit" onClick={this.goBack}>Ok</button>
+                    </div>
+                </div>
+            )
+        }
         if (this.props.location.state === undefined) {
             return (
                 <div>

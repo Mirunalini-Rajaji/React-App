@@ -2,9 +2,9 @@ import React from 'react';
 import '../login/login.css'
 import Axios from 'axios';
 
-const validEmailRegex = RegExp(
-    /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
-);
+// const validEmailRegex = RegExp(
+//     /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
+// );
 
 class SignIn extends React.Component {
 
@@ -21,6 +21,7 @@ class SignIn extends React.Component {
             Lnameerror: '',
             Emailerror: '',
             Pwderror: '',
+            success:false,
 
         }
     }
@@ -67,8 +68,8 @@ class SignIn extends React.Component {
             Axios.post("http://localhost:3000/newuser", userRequest)
                 .then(response => {
                     console.log(response)
-                    // alert('SignIn Successfully')
-                    this.props.history.push('/')
+                   this.setState({success:true})
+                    // this.props.history.push('/')
                 }, error => {
                     console.log(error)
                 })
@@ -104,8 +105,8 @@ class SignIn extends React.Component {
     checkEmail = () => {
         
         let Emailerror = ''
-        if (!validEmailRegex.test(this.state.emailAddress)) {
-            Emailerror = "Email must be in @abc.com"
+        if (this.state.emailAddress==='') {
+            Emailerror = "Email must be in abc@example.com"
             this.setState({ EmailError: Emailerror })
 
         } else {
@@ -116,22 +117,39 @@ class SignIn extends React.Component {
     checkPwd = () => {
         let Pwderror = ''
         if (this.state.pwd.length <= 4) {
-            Pwderror = "* Password must have one  number and one uppercase and lowercase letter, and greater than 5 character"
+            Pwderror = "* Password must have one  number and one uppercase and lowercase letter, and greater than 8 character"
             this.setState({ PwdError: Pwderror })
         }
         else {
             this.setState({ PwdError: '' })
         }
     }
+    continue=()=>{
+        this.props.history.push('/')
+    }
 
     render() {
+        if(this.state.success){
+            return (
+                <div>
+                <div className="header">
+                    <h1><a href="/products" className="logo">Inventory</a></h1>
+                    </div>
+                    <div style={{ textAlign: 'center', paddingTop: '50px'}}>
+                        <h3>Account Created Successfully!!</h3>
+                        <h4>Click continue to Login</h4>
+                        <button type="submit" onClick={this.continue}>Continue</button>
+                    </div>
+                </div>
+            )
+        }
 
         return (
 
             <div >
-                <div>
+                <div className="header">
 
-                    <h1>Inventory</h1>
+                <a href="/products" className="logo">Inventory</a>
                 </div>
 
                 <form onSubmit={this.addUser}>

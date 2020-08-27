@@ -94,7 +94,7 @@ class Product extends React.Component {
         })
         console.log(searchF);
         this.setState({ products: searchF })
-
+        this.setState({sortvalue:false})
     }
    
     sortName=()=>{
@@ -106,7 +106,9 @@ class Product extends React.Component {
             return this.setState({sortvalue:true})
         }
         if(this.state.sortvalue===true){
-            this.getAllProducts()
+            newlist.sort((a,b)=>
+            b.price - a.price)            
+        this.setState({products:newlist})
             return this.setState({sortvalue:false})
         }
     }
