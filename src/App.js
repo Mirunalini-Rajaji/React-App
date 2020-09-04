@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Router from "./component/RootComponent";
+import Header from './component/header/header';
 
 class App extends React.Component {
 
@@ -9,8 +10,8 @@ class App extends React.Component {
     render() {
         return (
             <div>
-               
-                <Router></Router>
+               <Header></Header>
+               <Router></Router>
             </div>
         )
     }

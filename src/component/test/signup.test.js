@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom'
-import Signin from '../signin/signIn'
+import Signin from '../signup/signUp'
 import { mount ,configure} from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import {MemoryRouter as Router} from 'react-router-dom'
@@ -10,15 +10,15 @@ import '@testing-library/jest-dom/extend-expect'
 configure({ adapter: new Adapter() })
 
 
-it('Signin renders without crashing', ()=>{
+it('Signup renders without crashing', ()=>{
     const div = document.createElement('div')
     ReactDOM.render(<Router><Signin></Signin></Router>, div)
 })
 
-
-it('check if h1 renders correctly', ()=>{
+describe("SignUp",()=>{
+it('check if signUp renders correctly', ()=>{
     const {getByTestId} = render(<Router><Signin></Signin></Router>)
-    expect(getByTestId('h2')).toHaveTextContent('SignIn')
+    expect(getByTestId('h2')).toHaveTextContent('SignUp')
 })
 it(" check firstName", () => {
     const wrapper = mount(<input type="text" placeholder="First Name" />);
@@ -49,6 +49,7 @@ it(" check password", () => {
 it('check button type',()=>{
   const link = renderer.create(<Router> <button type="submit" ></button></Router>).toJSON()
   expect(link).toMatchSnapshot()
+})
 })
 
 

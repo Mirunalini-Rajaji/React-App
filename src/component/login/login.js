@@ -10,8 +10,9 @@ class Login extends React.Component {
             email: '',
             pwd: '',
             pwderror: '',
-
-            emailerror: ''
+            emailerror: '',
+            wrongerror:'',
+            invaliderror:''
         }
     }
 
@@ -23,22 +24,27 @@ class Login extends React.Component {
         this.setState({ pwd: event.target.value })
     }
 
-    openDashboard = async () => {
-
-        const data = await Axios.get('http://localhost:3000/newuser?emailAddress=' + this.state.email);
+    openDashboard = async (e) => {
+        e.preventDefault()
+        const data = await Axios.get('http://localhost:4000/newuser?emailAddress=' + this.state.email);
         if (data.data.length !== 0) {
             if (this.state.pwd === data.data[0].pwd) {
+                localStorage.setItem('userLogin',true)
                 this.props.history.push('/dashboard')
+            // }
             } else {
-                alert("Wrong Password")
-
+                // alert("Wrong Password")
+                let wrongerror="* Wrong Password"
+                this.setState({wrongError:wrongerror})
             }
-
+           
         }
         else {
-            alert("invalid user")
+            // alert("invalid user")
+            let invaliderror="* Invalid User"
+            this.setState({invalidError:invaliderror})
         }
-
+       
     }
 
     render() {
@@ -47,18 +53,19 @@ class Login extends React.Component {
             <div >
 
 
-                <h1 data-testid='h1'>Inventory</h1>
+               
 
                 <form >
-                   
+               
                     <center style={{ padding: '20px' }}>
 
                         <h2 >Login</h2>
-
+                       
                         <input type="text" placeholder="Email Address" required onChange={this.getEmail} >
                         </input><br></br>
-                        <input type="password" placeholder="Password" required onChange={this.getPwd}></input> <br></br>
-
+                        <input type="password" placeholder="Password" required onChange={this.getPwd}></input> 
+                        <div className="error">{this.state.wrongError}</div>
+                        <div className="error">{this.state.invalidError}</div>
                         <button type="submit" onClick={this.openDashboard} >Login</button><br></br>
                         
                         <p data-testid='p'>Dont have an account? <Link to="/createaccount" style={{ fontSize: "17px", color: " rgb(40, 2, 90)" }}>Create Account</Link></p>

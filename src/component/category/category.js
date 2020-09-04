@@ -1,7 +1,7 @@
 import React from 'react';
 import Axios from 'axios';
 
-import Header from '../header/header';
+
 
 class Category extends React.Component {
 
@@ -10,7 +10,8 @@ class Category extends React.Component {
         this.state = {
             name: '',
             nameerror: '',
-            buttonStatus: true
+            buttonStatus: true,
+            caterror:''
         }
     }
     getName = (event) => {
@@ -35,8 +36,10 @@ class Category extends React.Component {
         console.log(this.state.name)
         if (data.data.length !== 0) {
             console.log(data.data[0].name)
-            if (this.state.name === data.data[0].category) {
-                alert("category is already added")
+            if (this.state.name.toLowerCase() === data.data[0].category.toLowerCase()) {
+                // alert("category is already added")
+                let caterror="* category is already added"
+                this.setState({catError:caterror,buttonStatus:true})
             }
         } else if (this.state.nameerror === '') {
             Axios.post('http://localhost:3000/allcategory', cat).then(response => {
@@ -49,16 +52,17 @@ class Category extends React.Component {
     render() {
         return (
             <div>
-                <Header></Header>
+               
 
                 <form>
                     <center style={{ padding: '20px' }}>
-                        {/* <fieldset> */}
+                       
                         <h2>Add Category</h2>
+                        <div className="error">{this.state.catError}</div>
                         <input type="text" placeholder="Category" onChange={this.getName}></input>
                         <div>{this.state.nameError}</div>
                         <button type="submit" onClick={this.addCat} disabled={this.state.buttonStatus}>Add</button>
-                        {/* </fieldset> */}
+                        
                     </center>
                 </form>
 

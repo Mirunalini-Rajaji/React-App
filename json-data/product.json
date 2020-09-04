@@ -1,14 +1,6 @@
 {
   "allProducts": [
     {
-      "id": 6,
-      "image": "toys.jpg",
-      "name": "Train",
-      "price": 100,
-      "quantity": "11",
-      "category": "Toys"
-    },
-    {
       "id": 7,
       "image": "bag.jpeg",
       "name": "handbag",
@@ -17,47 +9,61 @@
       "category": "Bags"
     },
     {
-      "id": 14,
-      "image": "toys.jpg",
-      "name": "Car",
-      "price": "100",
+      "id": 16,
+      "image": "dress.jfif",
+      "name": "dresses",
+      "price": "2",
       "quantity": "1",
-      "category": "Toys"
-    },
-    {
-      "image": "mobile.jpg",
-      "name": "Honor",
-      "price": "15000",
-      "quantity": "2",
-      "category": "Mobiles",
-      "id": 15
-    },
-    {
-      "image": "shoe.jpg",
-      "name": "sauks",
-      "price": "500",
-      "quantity": "1",
-      "category": "Shoe",
-      "id": 16
+      "category": "Dress"
     },
     {
       "id": 17,
-      "image": "logo.png",
-      "name": "wood",
-      "price": "500",
-      "quantity": "2",
-      "category": "Furnitures"
-    }
-  ],
-  "newuser": [
+      "image": "toys.jpg",
+      "name": "Truck",
+      "price": "1",
+      "quantity": "1",
+      "category": "Clothes"
+    },
     {
-      "firstName": "miruna",
-      "lastName": "lini",
-      "emailAddress": "miru@gmail.com",
-      "pwd": "adc",
-      "id": ""
+      "name": "pipe",
+      "image": "toys.jpg",
+      "price": "1",
+      "quantity": "1",
+      "category": "Toys",
+      "id": 18
+    },
+    {
+      "id": 19,
+      "image": "earphone.jpg",
+      "name": "sumung a2",
+      "price": "5002",
+      "quantity": "1",
+      "category": "Electronics"
+    },
+    {
+      "id": 20,
+      "image": "toys.jpg",
+      "name": "sum",
+      "price": "1",
+      "quantity": "2",
+      "category": "Electronics"
+    },
+    {
+      "image": "mobile.jpg",
+      "name": "realme",
+      "price": "2",
+      "quantity": "2",
+      "category": "Mobiles",
+      "id": 21
+    },
+    {
+      "name": "realme u1",
+      "image": "mobile.jpg",
+      "price": "200",
+      "quantity": "1",
+      "category": "Mobiles",
+      "id": 22
     }
-   
   ],
   "allcategory": [
     {
@@ -91,6 +97,10 @@
     {
       "category": "Clothes",
       "id": 8
+    },
+    {
+      "category": "dress",
+      "id": 9
     }
   ]
 }

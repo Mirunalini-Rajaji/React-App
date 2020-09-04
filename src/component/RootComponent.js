@@ -4,7 +4,7 @@ import Dashboard from './dashboard/dashboard';
 import Product from './Products/product';
 import AddProduct from './Products/addproduct';
 import Login from './login/login';
-import SignIn from './signin/signIn';
+import SignIn from './signup/signUp';
 import EditProduct from './Products/editProduct';
 import Category from './category/category';
 

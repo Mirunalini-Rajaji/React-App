@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SignUp check button type 1`] = `
+Array [
+  " ",
+  <button
+    type="submit"
+  />,
+]
+`;
+
+exports[`check button type 1`] = `
+Array [
+  " ",
+  <button
+    type="submit"
+  />,
+]
+`;

@@ -3,7 +3,8 @@ import './content.css'
 import axios from 'axios';
 import ProductDetail from './productDetail';
 
-import Header from '../header/header';
+
+import Pagination from '../pagination/pagination';
 
 
 class Product extends React.Component {
@@ -16,14 +17,19 @@ class Product extends React.Component {
             productsList: [],
             myid: 0,
             searchValue: '',
-            sortvalue:false
+            sortvalue:false,
+            currentPage:1,
+            postPerPage:3
             
         }
         
     }
    
 
-    componentWillMount() {
+    componentDidMount() {
+        if(localStorage.getItem('userLogin')===null){
+            this.props.history.push('/')
+        }
 
         this.getAllProducts()
         
@@ -59,8 +65,10 @@ class Product extends React.Component {
     }
 
     renderAllProducts = () => {
-        
-        return this.state.products.map(product => {
+        const indexOfLastProd = this.state.currentPage*this.state.postPerPage;
+        const indexOfFirstProd = indexOfLastProd-this.state.postPerPage;
+        const currentProd = this.state.products.slice(indexOfFirstProd,indexOfLastProd);
+        return currentProd.map(product => {
             return (
                 <ProductDetail
                     key={product.id}
@@ -112,22 +120,24 @@ class Product extends React.Component {
             return this.setState({sortvalue:false})
         }
     }
-    
+   paginate=(pages)=>{
+       this.setState({currentPage:pages})
+   } 
     render() {
 
         return (
             <div>
-                <Header></Header>
+               
               
                <div>
-                    <input type="text" className="searchBar" placeholder="Search by Name or Category" value={this.state.searchValue} onChange={this.getSearch}></input>
+                    <input  className="searchBar" placeholder="Search by Name or Category" value={this.state.searchValue} onChange={this.getSearch}></input>
                     <button className="add" onClick={this.sortName}>Sort by Price</button>
                    
                     <br></br>
                     </div>
 
                 {this.renderAllProducts()}
-
+                <Pagination prodPerPage={this.state.postPerPage} totalProd={this.state.products.length} paginate={this.paginate}></Pagination>
 
 
             </div>

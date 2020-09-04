@@ -6,3 +6,10 @@ exports[`check link 1`] = `
   onClick={[Function]}
 />
 `;
+
+exports[`login check link 1`] = `
+<a
+  href="/createaccount"
+  onClick={[Function]}
+/>
+`;

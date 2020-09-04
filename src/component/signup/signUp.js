@@ -2,13 +2,11 @@ import React from 'react';
 import '../login/login.css'
 import Axios from 'axios';
 
-// const validEmailRegex = RegExp(
-//     /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
-// );
+
 
 class SignIn extends React.Component {
 
-    //     
+       
     constructor(props) {
         super(props)
         this.state = {
@@ -22,7 +20,7 @@ class SignIn extends React.Component {
             Emailerror: '',
             Pwderror: '',
             success:false,
-
+            verifyerror:''
         }
     }
 
@@ -50,7 +48,8 @@ class SignIn extends React.Component {
     }
 
 
-    addUser = async () => {
+    addUser = async (e) => {
+        e.preventDefault()
         let userRequest = {
             "firstName": this.state.firstName,
             "lastName": this.state.lastName,
@@ -59,13 +58,15 @@ class SignIn extends React.Component {
             "pwd": this.state.pwd,
 
         }
-        const data = await Axios.get('http://localhost:3000/newuser?emailAddress=' + this.state.emailAddress);
+        const data = await Axios.get('http://localhost:4000/newuser?emailAddress=' + this.state.emailAddress);
         if (data.data.length !== 0) {
             if (this.state.emailAddress === data.data[0].emailAddress) {
-                alert("email Address is already registered")
+                // alert("email Address is already registered")
+                let verifyerror="* Email address is already registered"
+                this.setState({verifyError:verifyerror})
             }
         } else if (this.state.FnameError === '' && this.state.LnameError === '' && this.state.PwdError === '' && this.state.EmailError === '') {
-            Axios.post("http://localhost:3000/newuser", userRequest)
+            Axios.post("http://localhost:4000/newuser", userRequest)
                 .then(response => {
                     console.log(response)
                    this.setState({success:true})
@@ -131,41 +132,36 @@ class SignIn extends React.Component {
     render() {
         if(this.state.success){
             return (
-                <div>
-                <div className="header">
-                    <h1><a href="/products" className="logo">Inventory</a></h1>
-                    </div>
+              
                     <div style={{ textAlign: 'center', paddingTop: '50px'}}>
                         <h3>Account Created Successfully!!</h3>
                         <h4>Click continue to Login</h4>
                         <button type="submit" onClick={this.continue}>Continue</button>
                     </div>
-                </div>
+               
             )
         }
 
         return (
 
             <div >
-                <div className="header">
-
-                <a href="/products" className="logo">Inventory</a>
-                </div>
+               
 
                 <form onSubmit={this.addUser}>
                   
                     <center style={{ padding: '20px' }}>
-                        <h2 data-testid='h2' >SignIn</h2>
-                        <input type="text" placeholder="First Name" onChange={this.getFname} required style={{ margin: '10px' }}>
+                        <h2 data-testid='h2' >SignUp</h2>
+                        <input type="text" placeholder="First Name" onChange={this.getFname} required >
                         </input><div>{this.state.FnameError}</div>
-                        <input type="text" placeholder="Last Name" onChange={this.getLname} required style={{ margin: '15px' }}></input>
+                        <input type="text" placeholder="Last Name" onChange={this.getLname} required ></input>
                         <div>{this.state.LnameError}</div>
-                        <input type="text" placeholder="Email Address" onChange={this.getEmail} pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required style={{ margin: '15px' }}></input>
+                        <input type="text" placeholder="Email Address" onChange={this.getEmail} pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required ></input>
                         <div>{this.state.EmailError}</div>
-                        <input type="password" placeholder="Password" required onChange={this.getPwd} pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" style={{ margin: '15px' }}></input>
+                        <div className="error">{this.state.verifyError}</div>
+                        <input type="password" placeholder="Password" required onChange={this.getPwd} pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" ></input>
                         <div>{this.state.PwdError}</div>
 
-                        <button type="submit">SignIn</button><br></br>
+                        <button type="submit">SignUp</button><br></br>
                     </center>
                    
                 </form>

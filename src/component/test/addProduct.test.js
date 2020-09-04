@@ -4,9 +4,10 @@ import AddProducts from '../Products/addproduct'
 import { mount ,shallow,configure} from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import {MemoryRouter as Router} from 'react-router-dom'
-// import {  render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect'
 configure({ adapter: new Adapter() })
+
+describe("Add Products",()=>{
 
 it('AddProducts renders without crashing', ()=>{
     const div = document.createElement('div')
@@ -53,3 +54,6 @@ it("Render", () => {
     button.simulate("click");
     expect(addProduct).toHaveBeenCalledTimes(1);
   });
+ 
+ 
+})

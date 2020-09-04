@@ -18,11 +18,17 @@ fieldset{
    height: auto;
 }
 .searchBar {
-    margin-left: 50px;
-    
+    margin-left: 40px;
+    width: 35%;
+    padding: 12px;
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: vertical;
     
 }
-input[type=text],[type=password],[type=number],[type=file],select{
+/* input[type=text],[type=password],[type=number],[type=file],select{
     width: 35%;
     padding: 12px;
     margin-top: 25px;
@@ -30,9 +36,9 @@ input[type=text],[type=password],[type=number],[type=file],select{
     border-radius: 4px;
     box-sizing: border-box;
     resize: vertical;
-  }
+  } */
  
-  button[type=submit] {
+  /* button[type=submit] {
     background-color: #4CAF50;
     color: white;
     padding: 12px 20px;
@@ -40,17 +46,24 @@ input[type=text],[type=password],[type=number],[type=file],select{
     border-radius: 4px;
     cursor: pointer;
     margin-top: 30px;
-  }
+  } */
   form{
 padding: 40px 100px 10px;
 
   }
  
   @media screen and (max-width: 50px) {
-    button[type=submit],input[type=text],[type=password],[type=file],select,form,.link,.div,.chart {
+    button[type=submit],input[type=text],[type=password],[type=file],select,form,.link,.div{
       width: 40%;
       margin-top: 0;
     }
+  }
+  @media screen and (max-width: 400px) {
+      .col-25,.col-75{
+          width: 100%;
+          margin: 0;
+          margin-left: 20px;
+      }
   }
   @media screen and (max-width: 50px) {
     .add {
@@ -61,7 +74,6 @@ padding: 40px 100px 10px;
     }
   }
  label{
-    
      display:inline-block;
  }
  .row{
@@ -100,7 +112,7 @@ padding: 40px 100px 10px;
     border-radius: 4px;
     cursor: pointer;
     float: right;
-    margin-top:26px;
+    margin-top:20px;
     margin-right: 0px;
     
  }
@@ -144,14 +156,47 @@ padding: 40px 100px 10px;
    display: block;
    clear: both;
 }
-.bg{
-    background-color: darkcyan;
-}
+
 
 .cardChart{
     box-shadow:0 4px 2px 0 rgba(0,0,0,0.2);
     padding: 14px;
    
     text-align: center;
-    
+    /* background-color: #b1acb4; */
 }
+.col-25 {
+    float: left;
+    width: 25%;
+    margin-top: 25px;
+  }
+  
+  .col-75 {
+    float: left;
+    width: 75%;
+    margin-top: 6px;
+  }
+  
+  /* Clear floats after the columns */
+  .updateRow:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  .pagination {
+    display: inline-block;
+    position: relative;
+  }
+  
+  .page-link {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+    border: 1px solid #ddd;
+    margin: 0 4px;
+  }
+ 
+  .page-link:hover{background-color: rgb(173, 166, 166);}
+ 

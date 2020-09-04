@@ -1,0 +1,65 @@
+{
+  "newuser": [
+    {
+      "firstName": "miruna",
+      "lastName": "lini",
+      "emailAddress": "miru@gmail.com",
+      "pwd": "adc",
+      "id": ""
+    },
+    {
+      "firstName": "minee",
+      "lastName": "minee",
+      "emailAddress": "mine@gmail.com",
+      "pwd": "mmM*1235",
+      "id": "8HFlTnL"
+    },
+    {
+      "firstName": "Mukund",
+      "lastName": "Mukund",
+      "emailAddress": "mukund@gmail.com",
+      "pwd": "mM*12345",
+      "id": "g4nyRNY"
+    },
+    {
+      "firstName": "mmmmm",
+      "lastName": "mmmmm",
+      "emailAddress": "mki@gmail.com",
+      "pwd": "Mki*12345",
+      "id": "LtravUF"
+    },
+    {
+      "firstName": "mukun",
+      "lastName": "mukun",
+      "emailAddress": "mk@gmail.com",
+      "pwd": "Mki*12345",
+      "id": "rfMPTvR"
+    },
+    {
+      "firstName": "rajaji",
+      "lastName": "rajaji",
+      "id": "g_KDJYS"
+    },
+    {
+      "firstName": "qqqqq",
+      "lastName": "qqqqqq",
+      "pwd": "Qer*1234",
+      "emailAddress": "qer@gmail.com",
+      "id": "A3DNkJs"
+    },
+    {
+      "firstName": "derrr",
+      "lastName": "derrr",
+      "pwd": "DEdr12345",
+      "emailAddress": "der@gmail.com",
+      "id": "3HTMsMn"
+    },
+    {
+      "firstName": "serty",
+      "lastName": "seryy",
+      "pwd": "Sert*123",
+      "emailAddress": "sert@gmail.com",
+      "id": "rjz8Uqy"
+    }
+  ]
+}

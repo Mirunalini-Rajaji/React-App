@@ -1,14 +1,14 @@
 import React from 'react';
 import './content.css'
 import Axios from 'axios';
-import Header from '../header/header';
+
 
 class AddProduct extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
             productImage: '',
-            productName: '',
+            name: '',
             productPrice: 0,
             productQuantity: 0,
             cty: '',
@@ -16,6 +16,7 @@ class AddProduct extends React.Component {
             nameerror: '',
             categoryerror: '',
             imageerror: '',
+            producterror:'',
             allcty: [],
             success:false
 
@@ -23,10 +24,11 @@ class AddProduct extends React.Component {
     }
 
     componentWillMount() {
+       
         this.getAllCat()
     }
     getAllCat = () => {
-        Axios.get("http://localhost:3000/allcategory").then(response => {
+         Axios.get("http://localhost:3000/allcategory").then(response => {
             this.setState({ allcty: response.data })
             console.log(response.data)
         }, error => {
@@ -35,7 +37,7 @@ class AddProduct extends React.Component {
     }
 
     getName = (event) => {
-        this.setState({ productName: event.target.value })
+        this.setState({ name: event.target.value })
         this.checkName()
     }
     getPrice = (event) => {
@@ -60,7 +62,7 @@ class AddProduct extends React.Component {
 
     checkName = () => {
         let nameerror = ''
-        if (this.state.productName.length < 1) {
+        if (this.state.name.length < 1) {
             nameerror = "*Name must be greater than 2"
             this.setState({ nameError: nameerror })
         } else {
@@ -80,26 +82,33 @@ class AddProduct extends React.Component {
         }
     }
 
-    addProduct = () => {
-
+    addProduct = async(e) => {
+        e.preventDefault()
         let productRequest = {
            
             "image": this.state.productImage,
-            "name": this.state.productName,
+            "name": this.state.name,
             "price": this.state.productPrice,
             "quantity": this.state.productQuantity,
             "category": this.state.cty,
 
 
         }
-
-        if (this.state.nameError === '' && this.state.imageError === '') {
+        
+        const data = await Axios.get('http://localhost:3000/allProducts?name=' + this.state.name);
+        
+        if (data.data.length !== 0) {
+           
+            if (this.state.name.toLowerCase() === data.data[0].name.toLowerCase()) {
+                // alert("product is already added")
+                let producterror="* Product already added"
+                this.setState({productError:producterror})
+            }
+        } else if (this.state.nameError === '' && this.state.imageError === '' ) {
             Axios.post("http://localhost:3000/allProducts", productRequest)
                 .then(response => {
                     console.log(response)
                     
-                }, error => {
-                    console.log(error)
                 })
                 this.setState({success:true})
             // this.props.history.push('/products')
@@ -115,7 +124,7 @@ continue=()=>{
         if(this.state.success){
             return (
                 <div>
-                   <Header></Header>
+                  
                     <div style={{ textAlign: 'center', paddingTop: '50px'}}>
                         <h3>Product Added Successfully!!</h3>
                         <button type="submit" onClick={this.continue}>Ok</button>
@@ -125,13 +134,13 @@ continue=()=>{
         }
         return (
             <div >
-                <Header></Header>
+               
 
                 <form >
-
+               
                     <center style={{ padding: '10px' }}>
                         <h2 >Add Product</h2>
-
+                        <div className="error"> {this.state.productError}</div>
                         <input type="text" placeholder="Product Name" onChange={this.getName} required >
 
                         </input>
